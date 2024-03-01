@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  JLog
+
+  Created by 이지수 on 3/1/24.
+  
+*/
+
+"delete" = "삭제";
+"retry_delete" = "삭제에 실패했습니다.\n잠시후 다시 시도해주세요.";
+"modify" = "수정";
+"retry_refresh" = "새로고침에 실패했습니다.\n잠시후 다시 시도해주세요.";
+"enter_name_guide" = "닉네임을 입력해 주세요.";
+"confirm" = "확인";
+"enter_code_guide" = "코드를 입력해 주세요.";
+"enter" = "입장";
+"retry_enter" = "입장에 실패하였습니다.\n재시도 해주세요.";
+"create_room" = "방 생성";
+"create" = "생성";
+"retry_create" = "방 생성에 실패하였습니다.\n네트워크 상태를 확인해주세요.";
+"enter_amount" = "금액을 입력해 주세요.";
+"retry_upload" = "업로드에 실패하였습니다.\n잠시후 재시도 해주세요.";
+

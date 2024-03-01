@@ -171,13 +171,13 @@ final class RoomViewController: JLogBaseViewController {
         guard let indexPath,
               let log = self.viewModel.findLog(at: indexPath.row)?.log,
               log.username == self.viewModel.name else { return nil }
-        let modifyAction = UIContextualAction(style: .normal, title: "수정") { [weak self] _, _, completion in
+        let modifyAction = UIContextualAction(style: .normal, title: LocalizableStrings.localize("modify")) { [weak self] _, _, completion in
             guard let self else { return }
             let viewModel = LogModifyViewModel(name: self.viewModel.name, code: self.viewModel.code, log: log)
             let vc = LogCreateViewController(viewModel: viewModel, delegate: self)
             self.present(vc, animated: true)
         }
-        let deleteAction = UIContextualAction(style: .destructive, title: "삭제") { [weak self] _, _, completion in
+        let deleteAction = UIContextualAction(style: .destructive, title: LocalizableStrings.localize("delete")) { [weak self] _, _, completion in
             Task { [weak self] in
                 guard let self else { return }
                 self.add.isEnabled = false
@@ -186,7 +186,7 @@ final class RoomViewController: JLogBaseViewController {
                 let result = await self.viewModel.deleteLog(at: indexPath.row)
                 switch result {
                 case true : self.refreshRoom()
-                case false : self.alert(with: "삭제에 실패했습니다.\n잠시후 다시 시도해주세요.")
+                case false : self.alert(with: LocalizableStrings.localize("retry_delete"))
                 }
                 
                 self.add.isEnabled = true
@@ -208,7 +208,7 @@ extension RoomViewController: RefreshRoomViewDelegate {
             let result = await self.viewModel.searchLogs()
             switch result {
             case true : self.logs.reloadData()
-            case false : self.alert(with: "새로고침에 실패했습니다.\n잠시후 다시 시도해주세요.")
+            case false : self.alert(with: LocalizableStrings.localize("retry_refresh"))
             }
             
             self.add.isEnabled = true

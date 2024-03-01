@@ -13,7 +13,7 @@ final class EnteranceViewController: JLogBaseViewController {
     
     private let guide: UILabel = {
         let label = UILabel()
-        label.text = "코드를 입력해 주세요."
+        label.text = LocalizableStrings.localize("enter_code_guide")
         label.font = .largeFont
         label.textColor = .label
         return label
@@ -31,7 +31,7 @@ final class EnteranceViewController: JLogBaseViewController {
     }()
     private let enter: UIButton = {
         let button = UIButton()
-        button.setTitle("입장", for: .normal)
+        button.setTitle(LocalizableStrings.localize("enter"), for: .normal)
         button.titleLabel?.font = .regularFont
         button.titleLabel?.textColor = .tertiaryLabel
         button.backgroundColor = .buttonOff
@@ -40,7 +40,7 @@ final class EnteranceViewController: JLogBaseViewController {
     }()
     private let hold: UIButton = {
         let button = UIButton()
-        button.setTitle("방 생성", for: .normal)
+        button.setTitle(LocalizableStrings.localize("create_room"), for: .normal)
         button.titleLabel?.font = .regularFont
         button.titleLabel?.textColor = .tertiaryLabel
         button.backgroundColor = .buttonOn
@@ -105,7 +105,7 @@ final class EnteranceViewController: JLogBaseViewController {
                 let result = await self?.viewModel.enter(withCode: code) ?? false
                 switch result {
                 case true: self?.enterRoom(withCode: code)
-                case false: self?.alert(with: "입장에 실패하였습니다.\n재시도 해주세요.")
+                case false: self?.alert(with: LocalizableStrings.localize("retry_enter"))
                 }
                 self?.enter.isEnabled = true
                 self?.hold.isEnabled = true
@@ -122,7 +122,7 @@ final class EnteranceViewController: JLogBaseViewController {
                 if let code {
                     self?.enterRoom(withCode: code)
                 } else {
-                    self?.alert(with: "방 생성에 실패하였습니다.\n네트워크 상태를 확인해주세요.")
+                    self?.alert(with: LocalizableStrings.localize("retry_create"))
                 }
                 self?.enter.isEnabled = true
                 self?.hold.isEnabled = true
@@ -189,7 +189,7 @@ struct EnteranceViewModel {
 extension UIViewController {
     func alert(with message: String) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+        let ok = UIAlertAction(title: LocalizableStrings.localize("confirm"), style: .default, handler: nil)
         alert.addAction(ok)
         self.present(alert, animated: true)
     }
