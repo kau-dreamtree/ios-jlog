@@ -11,12 +11,14 @@ struct Log: Codable {
     let id: Int
     let amount: Int
     let username: String
+    let memo: String?
     let createdAt: Date
     
     enum CodingKeys: String, CodingKey {
         case id = "log_id"
         case amount
         case username
+        case memo
         case createdAt = "created_at"
     }
     
