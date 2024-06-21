@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  JLog
+
+  Created by 이지수 on 3/1/24.
+  
+*/
+
+"delete" = "Delete";
+"retry_delete" = "Delete failed.\nPlease try again in a few minutes.";
+"modify" = "Modify";
+"retry_refresh" = "Refresh failed.\nTry again in a few minutes.";
+"enter_name_guide" = "Please enter your nickname.";
+"confirm" = "Confirm";
+"enter_code_guide" = "Please enter the code.";
+"enter" = "Enter";
+"retry_enter" = "Failed to enter.\nPlease retry.";
+"create_room" = "Create room";
+"create" = "Create";
+"retry_create" = "Room creation failed.\nPlease check network status.";
+"enter_amount" = "Please enter the amount.";
+"retry_upload" = "Upload failed.\nPlease retry in a few minutes.";
+

@@ -22,7 +22,7 @@ final class LogCreateViewController: JLogBaseViewController {
     
     private let guide: UILabel = {
         let label = UILabel()
-        label.text = "금액을 입력해 주세요."
+        label.text = LocalizableStrings.localize("enter_amount")
         label.font = .largeFont
         label.textColor = .label
         return label
@@ -119,7 +119,7 @@ final class LogCreateViewController: JLogBaseViewController {
                 self.delegate?.refreshRoom()
                 self.dismiss(animated: true)
             case false : 
-                self.alert(with: "업로드에 실패하였습니다.\n잠시후 재시도 해주세요.")
+                self.alert(with: LocalizableStrings.localize("retry_upload"))
             }
             self.isLoading.deactivate()
         }
@@ -138,7 +138,7 @@ struct LogCreateViewModel {
 
 extension LogCreateViewModel: LogCreateViewModelProtocol {
     
-    var enterTitle: String { return "생성" }
+    var enterTitle: String { return LocalizableStrings.localize("create") }
     var log: Log? { return nil }
     
     func enter(with amount: Int) async -> Bool {
@@ -167,7 +167,7 @@ struct LogModifyViewModel: LogCreateViewModelProtocol {
 
 extension LogModifyViewModel {
     
-    var enterTitle: String { return "수정" }
+    var enterTitle: String { return LocalizableStrings.localize("modify") }
     var log: Log? { return self.rawLog }
     
     func enter(with amount: Int) async -> Bool {

@@ -11,7 +11,7 @@ final class LoginViewController: UIViewController {
     
     private let guide: UILabel = {
         let label = UILabel()
-        label.text = "이름을 입력해 주세요."
+        label.text = LocalizableStrings.localize("enter_name_guide")
         label.font = .largeFont
         label.textColor = .label
         return label
@@ -29,7 +29,7 @@ final class LoginViewController: UIViewController {
     }()
     private let enter: UIButton = {
         let button = UIButton()
-        button.setTitle("확인", for: .normal)
+        button.setTitle(LocalizableStrings.localize("confirm"), for: .normal)
         button.titleLabel?.font = .regularFont
         button.titleLabel?.textColor = .tertiaryLabel
         button.backgroundColor = .buttonOff

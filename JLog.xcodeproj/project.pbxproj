@@ -26,6 +26,8 @@
 		4A6E83842B7FC6F000B88238 /* JLogNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83832B7FC6F000B88238 /* JLogNetwork.swift */; };
 		4AF89A4D2B88805300E07CA2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF89A4C2B88805300E07CA2 /* LoadingView.swift */; };
 		4AF89A4F2B8883BE00E07CA2 /* JLogBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF89A4E2B8883BE00E07CA2 /* JLogBaseViewController.swift */; };
+		4AF89A532B91A5CA00E07CA2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AF89A552B91A5CA00E07CA2 /* Localizable.strings */; };
+		4AF89A582B91AA5800E07CA2 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF89A572B91AA5800E07CA2 /* LocalizableStrings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,9 @@
 		4A6E83832B7FC6F000B88238 /* JLogNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLogNetwork.swift; sourceTree = "<group>"; };
 		4AF89A4C2B88805300E07CA2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		4AF89A4E2B8883BE00E07CA2 /* JLogBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLogBaseViewController.swift; sourceTree = "<group>"; };
+		4AF89A542B91A5CA00E07CA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4AF89A562B91A5E300E07CA2 /* ko-KR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ko-KR"; path = "ko-KR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4AF89A572B91AA5800E07CA2 /* LocalizableStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,13 +142,23 @@
 		4A6E83822B7FC5CA00B88238 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				4AF89A592B91AA6200E07CA2 /* Strings */,
 				4A6E836C2B7F8B9600B88238 /* Constant.swift */,
 				4A6E83792B7FB56600B88238 /* Log.swift */,
 				4A6E83832B7FC6F000B88238 /* JLogNetwork.swift */,
 				4AF89A4C2B88805300E07CA2 /* LoadingView.swift */,
 				4AF89A4E2B8883BE00E07CA2 /* JLogBaseViewController.swift */,
+				4AF89A572B91AA5800E07CA2 /* LocalizableStrings.swift */,
 			);
 			path = Global;
+			sourceTree = "<group>";
+		};
+		4AF89A592B91AA6200E07CA2 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				4AF89A552B91A5CA00E07CA2 /* Localizable.strings */,
+			);
+			path = Strings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +203,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"ko-KR",
 			);
 			mainGroup = 4A6E83482B7F84E700B88238;
 			productRefGroup = 4A6E83522B7F84E700B88238 /* Products */;
@@ -205,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A6E83612B7F84E800B88238 /* LaunchScreen.storyboard in Resources */,
+				4AF89A532B91A5CA00E07CA2 /* Localizable.strings in Resources */,
 				4A6E835E2B7F84E800B88238 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,6 +246,7 @@
 				4A6E836B2B7F884500B88238 /* EnteranceViewController.swift in Sources */,
 				4A6E83842B7FC6F000B88238 /* JLogNetwork.swift in Sources */,
 				4A6E83572B7F84E700B88238 /* SceneDelegate.swift in Sources */,
+				4AF89A582B91AA5800E07CA2 /* LocalizableStrings.swift in Sources */,
 				4A6E837C2B7FBDC900B88238 /* RoomViewModel.swift in Sources */,
 				4A6E83722B7F8D2600B88238 /* UIFont+Extension.swift in Sources */,
 				4A6E83742B7FB3F300B88238 /* Collection+Extension.swift in Sources */,
@@ -247,6 +265,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		4AF89A552B91A5CA00E07CA2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AF89A542B91A5CA00E07CA2 /* en */,
+				4AF89A562B91A5E300E07CA2 /* ko-KR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -255,6 +282,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -318,6 +346,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -375,7 +404,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 4CLMD5ZPC3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JLog/Info.plist;
@@ -391,7 +420,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.05;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dreamtree.jlog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -406,7 +435,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 4CLMD5ZPC3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JLog/Info.plist;
@@ -422,7 +451,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.05;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dreamtree.jlog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
