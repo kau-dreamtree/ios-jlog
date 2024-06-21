@@ -54,7 +54,6 @@ extension RoomViewModel: RoomViewModelProtocol {
     
     func deleteLog(at index: Int) async -> Bool {
         guard let log = self.logs[safe: index] else { return false }
-        // TODO: delete api 연결
         do {
             let (_, response) = try await JLogNetwork.shared.request(with: LogAPI.delete(roomCode: self.code, username: self.name, logId: log.id))
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode,

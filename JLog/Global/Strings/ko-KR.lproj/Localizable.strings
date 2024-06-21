@@ -18,6 +18,8 @@
 "create_room" = "방 생성";
 "create" = "생성";
 "retry_create" = "방 생성에 실패하였습니다.\n네트워크 상태를 확인해주세요.";
-"enter_amount" = "금액을 입력해 주세요.";
+"amount" = "금액";
+"memo" = "메모";
+"braced_optional" = "(선택)";
 "retry_upload" = "업로드에 실패하였습니다.\n잠시후 재시도 해주세요.";
 

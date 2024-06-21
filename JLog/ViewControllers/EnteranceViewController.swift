@@ -41,8 +41,8 @@ final class EnteranceViewController: JLogBaseViewController {
     private let hold: UIButton = {
         let button = UIButton()
         button.setTitle(LocalizableStrings.localize("create_room"), for: .normal)
+        button.setTitleColor(.buttonTitle, for: .normal)
         button.titleLabel?.font = .regularFont
-        button.titleLabel?.textColor = .tertiaryLabel
         button.backgroundColor = .buttonOn
         button.layer.cornerRadius = 10
         return button

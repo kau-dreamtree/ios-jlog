@@ -18,6 +18,7 @@ extension UIFont {
 
 
 extension UIColor {
-    static let buttonOn = UIColor.tertiaryLabel
-    static let buttonOff = UIColor.quaternarySystemFill
+    static let buttonTitle = UIColor.systemBackground
+    static let buttonOn = UIColor.label
+    static let buttonOff = UIColor.quaternaryLabel
 }

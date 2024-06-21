@@ -61,7 +61,7 @@ final class JLogNetwork {
         
         var request = URLRequest(url: url)
         switch api.method {
-        case let .post(data), let .put(data), let .delete(data ):
+        case let .post(data), let .put(data), let .delete(data):
             request.httpBody = try? JSONSerialization.data(withJSONObject: data)
         default :
             break
@@ -108,9 +108,9 @@ enum RoomAPI: JLogAPI {
 }
 
 enum LogAPI: JLogAPI {
-    case create(roomCode: String, username: String, amount: Int)
+    case create(roomCode: String, username: String, amount: Int, memo: String?)
     case find(roomCode: String, username: String)
-    case modify(roomCode: String, username: String, logId: Int, amount: Int)
+    case modify(roomCode: String, username: String, logId: Int, amount: Int, memo: String?)
     case delete(roomCode: String, username: String, logId: Int)
 
     var path: String {
@@ -121,12 +121,12 @@ enum LogAPI: JLogAPI {
     
     var method: Method {
         switch self {
-        case let .create(roomCode, username, amount) : 
-            return .post(data: ["room_code": roomCode, "username": username, "amount": amount])
-        case let .find(roomCode, username) : 
+        case let .create(roomCode, username, amount, memo) :
+            return .post(data: ["room_code": roomCode, "username": username, "amount": amount, "memo": memo])
+        case let .find(roomCode, username) :
             return .get(queryItems: [URLQueryItem(name: "room_code", value: roomCode), URLQueryItem(name: "username", value: username)])
-        case let .modify(roomCode, username, logId, amount) : 
-            return .put(data: ["room_code": roomCode, "username": username, "log_id": logId, "amount": amount])
+        case let .modify(roomCode, username, logId, amount, memo) :
+            return .put(data: ["room_code": roomCode, "username": username, "log_id": logId, "amount": amount, "memo": memo])
         case let .delete(roomCode, username, logId) :
             return .delete(data: ["room_code": roomCode, "username": username, "log_id": logId])
         }

@@ -18,6 +18,8 @@
 "create_room" = "Create room";
 "create" = "Create";
 "retry_create" = "Room creation failed.\nPlease check network status.";
-"enter_amount" = "Please enter the amount.";
+"amount" = "amount";
+"memo" = "memo";
+"braced_optional" = "(optional)";
 "retry_upload" = "Upload failed.\nPlease retry in a few minutes.";
 

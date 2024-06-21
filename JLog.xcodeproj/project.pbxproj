@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A04FA552C2568B700F53DA1 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA542C2568B700F53DA1 /* String+Extension.swift */; };
 		4A6E83552B7F84E700B88238 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83542B7F84E700B88238 /* AppDelegate.swift */; };
 		4A6E83572B7F84E700B88238 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83562B7F84E700B88238 /* SceneDelegate.swift */; };
 		4A6E83592B7F84E700B88238 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83582B7F84E700B88238 /* RoomViewController.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A04FA542C2568B700F53DA1 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		4A6E83512B7F84E700B88238 /* JLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6E83542B7F84E700B88238 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A6E83562B7F84E700B88238 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				4A6E836F2B7F8D0A00B88238 /* UIView+Extension.swift */,
 				4A6E83712B7F8D2600B88238 /* UIFont+Extension.swift */,
 				4A6E83732B7FB3F300B88238 /* Collection+Extension.swift */,
+				4A04FA542C2568B700F53DA1 /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				4AF89A4F2B8883BE00E07CA2 /* JLogBaseViewController.swift in Sources */,
 				4A6E83692B7F881200B88238 /* LoginViewController.swift in Sources */,
 				4A6E837E2B7FC03E00B88238 /* LogCreateViewController.swift in Sources */,
+				4A04FA552C2568B700F53DA1 /* String+Extension.swift in Sources */,
 				4A6E83782B7FB54E00B88238 /* LogCell.swift in Sources */,
 				4A6E837A2B7FB56600B88238 /* Log.swift in Sources */,
 				4A6E83592B7F84E700B88238 /* RoomViewController.swift in Sources */,

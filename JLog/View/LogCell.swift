@@ -80,7 +80,7 @@ final class LogCell: UICollectionViewCell {
     func update(with data: ViewData) {
         self.date.text = data.log.stringCreatedAt
         self.name.text = data.log.username
-        self.memo.isHidden = data.log.memo == nil
+        self.memo.isHidden = data.log.memo.isEmptyOrNil
         self.amount.text = data.log.amount.currency
         self.backgroundColor = data.isMine ? .secondarySystemFill : .systemBackground
     }
