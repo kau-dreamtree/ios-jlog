@@ -174,7 +174,7 @@ final class RoomViewController: JLogBaseViewController {
     }
     
     private func swipeActions(for indexPath: IndexPath?) -> UISwipeActionsConfiguration? {
-        guard let indexPath,
+        guard let indexPath, indexPath.section == 1,
               let log = self.viewModel.findLog(at: indexPath.row)?.log,
               log.username == self.viewModel.name else { return nil }
         let modifyAction = UIContextualAction(style: .normal, title: LocalizableStrings.localize("modify")) { [weak self] _, _, completion in
