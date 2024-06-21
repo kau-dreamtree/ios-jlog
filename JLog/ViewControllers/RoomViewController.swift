@@ -40,6 +40,12 @@ final class RoomViewController: JLogBaseViewController {
         view.register(BalanceCell.self, forCellWithReuseIdentifier: BalanceCell.identifier)
         view.register(LogCell.self, forCellWithReuseIdentifier: LogCell.identifier)
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addAction(UIAction(handler: { [weak self] _ in
+            self?.refreshRoom()
+        }), for: .valueChanged)
+        view.refreshControl = refreshControl
+        
         return view
     }()
     
@@ -72,10 +78,10 @@ final class RoomViewController: JLogBaseViewController {
         button.imageView?.contentMode = .scaleToFill
         return button
     }()
-    private let refresh: UIButton = {
+    private let info: UIButton = {
         let button = UIButton()
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 20)
-        let image = UIImage(systemName: "arrow.clockwise", withConfiguration: imageConfig)
+        let image = UIImage(systemName: "info.circle", withConfiguration: imageConfig)
         button.setImage(image, for: .normal)
         button.tintColor = .label
         button.imageView?.contentMode = .scaleToFill
@@ -123,7 +129,7 @@ final class RoomViewController: JLogBaseViewController {
     private func setupCustomNavigationBar() {
         self.code.text = "#\(self.viewModel.code)"
         
-        self.navigationBar.addSubviews([self.room, self.code, self.add, self.refresh])
+        self.navigationBar.addSubviews([self.room, self.code, self.add, self.info])
         
         NSLayoutConstraint.activate([
             navigationBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: -1),
@@ -147,10 +153,10 @@ final class RoomViewController: JLogBaseViewController {
             self.add.widthAnchor.constraint(equalToConstant: 25)
         ])
         NSLayoutConstraint.activate([
-            self.refresh.centerYAnchor.constraint(equalTo: self.room.bottomAnchor, constant: -10),
-            self.refresh.leadingAnchor.constraint(equalTo: self.navigationBar.leadingAnchor, constant: 20),
-            self.refresh.heightAnchor.constraint(equalToConstant: 25),
-            self.refresh.widthAnchor.constraint(equalToConstant: 25)
+            self.info.centerYAnchor.constraint(equalTo: self.room.bottomAnchor, constant: -10),
+            self.info.leadingAnchor.constraint(equalTo: self.navigationBar.leadingAnchor, constant: 20),
+            self.info.heightAnchor.constraint(equalToConstant: 25),
+            self.info.widthAnchor.constraint(equalToConstant: 25)
         ])
     }
     
@@ -162,9 +168,9 @@ final class RoomViewController: JLogBaseViewController {
             self.present(vc, animated: true)
         }, for: .touchUpInside)
         
-        self.refresh.addAction(UIAction { [weak self] _ in
-            self?.refreshRoom()
-        }, for: .touchUpInside)
+        self.info.addAction(UIAction { [weak self] _ in
+            // TODO: make info button action
+        }, for: .valueChanged)
     }
     
     private func swipeActions(for indexPath: IndexPath?) -> UISwipeActionsConfiguration? {
@@ -181,7 +187,6 @@ final class RoomViewController: JLogBaseViewController {
             Task { [weak self] in
                 guard let self else { return }
                 self.add.isEnabled = false
-                self.refresh.isEnabled = false
                 
                 let result = await self.viewModel.deleteLog(at: indexPath.row)
                 switch result {
@@ -190,20 +195,24 @@ final class RoomViewController: JLogBaseViewController {
                 }
                 
                 self.add.isEnabled = true
-                self.refresh.isEnabled = true
             }
         }
         return UISwipeActionsConfiguration(actions: [deleteAction, modifyAction])
+    }
+    
+    private func didEndRefreshRoom() {
+        guard self.logs.refreshControl?.isRefreshing == true else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.logs.refreshControl?.endRefreshing()
+        }
     }
 }
 
 extension RoomViewController: RefreshRoomViewDelegate {
     func refreshRoom() {
-        self.isLoading.activate()
         Task {[weak self] in
             guard let self else { return }
             self.add.isEnabled = false
-            self.refresh.isEnabled = false
             
             let result = await self.viewModel.searchLogs()
             switch result {
@@ -212,8 +221,7 @@ extension RoomViewController: RefreshRoomViewDelegate {
             }
             
             self.add.isEnabled = true
-            self.refresh.isEnabled = true
-            self.isLoading.deactivate()
+            self.didEndRefreshRoom()
         }
     }
 }
