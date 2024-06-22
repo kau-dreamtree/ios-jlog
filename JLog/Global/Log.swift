@@ -24,6 +24,7 @@ struct Log: Codable {
     
     var stringCreatedAt: String {
         let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
         dateFormatter.dateFormat = "yy.MM.dd HH:mm"
         return dateFormatter.string(from: self.createdAt)
     }
