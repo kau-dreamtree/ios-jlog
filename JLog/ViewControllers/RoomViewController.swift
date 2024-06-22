@@ -78,6 +78,7 @@ final class RoomViewController: JLogBaseViewController {
         button.imageView?.contentMode = .scaleToFill
         return button
     }()
+    /**
     private let info: UIButton = {
         let button = UIButton()
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 20)
@@ -87,6 +88,7 @@ final class RoomViewController: JLogBaseViewController {
         button.imageView?.contentMode = .scaleToFill
         return button
     }()
+    **/
     
     init(viewModel: RoomViewModelProtocol) {
         self.viewModel = viewModel
@@ -129,7 +131,7 @@ final class RoomViewController: JLogBaseViewController {
     private func setupCustomNavigationBar() {
         self.code.text = "#\(self.viewModel.code)"
         
-        self.navigationBar.addSubviews([self.room, self.code, self.add, self.info])
+        self.navigationBar.addSubviews([self.room, self.code, self.add])
         
         NSLayoutConstraint.activate([
             navigationBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: -1),
@@ -151,12 +153,14 @@ final class RoomViewController: JLogBaseViewController {
             self.add.heightAnchor.constraint(equalToConstant: 25),
             self.add.widthAnchor.constraint(equalToConstant: 25)
         ])
+        /**
         NSLayoutConstraint.activate([
             self.info.centerYAnchor.constraint(equalTo: self.room.bottomAnchor, constant: -10),
             self.info.leadingAnchor.constraint(equalTo: self.navigationBar.leadingAnchor, constant: 20),
             self.info.heightAnchor.constraint(equalToConstant: 25),
             self.info.widthAnchor.constraint(equalToConstant: 25)
         ])
+        **/
     }
     
     private func setupButton() {
@@ -167,9 +171,11 @@ final class RoomViewController: JLogBaseViewController {
             self.present(vc, animated: true)
         }, for: .touchUpInside)
         
+        /**
         self.info.addAction(UIAction { [weak self] _ in
             // TODO: make info button action
         }, for: .valueChanged)
+        **/
     }
     
     private func swipeActions(for indexPath: IndexPath?) -> UISwipeActionsConfiguration? {
