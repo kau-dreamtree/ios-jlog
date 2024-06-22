@@ -137,7 +137,6 @@ final class RoomViewController: JLogBaseViewController {
             navigationBar.topAnchor.constraint(equalTo: self.view.topAnchor, constant: -1),
             navigationBar.heightAnchor.constraint(equalToConstant: self.view.safeAreaInsets.top + 121)
         ])
-        
         NSLayoutConstraint.activate([
             self.room.centerXAnchor.constraint(equalTo: navigationBar.centerXAnchor),
             self.room.bottomAnchor.constraint(equalTo: self.code.topAnchor)
@@ -262,5 +261,12 @@ extension RoomViewController: UICollectionViewDelegate, UICollectionViewDelegate
         case 0: return CGSize(width: collectionView.frame.width, height: 150)
         default: return CGSize(width: collectionView.frame.width, height: 50)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard indexPath.section == 1 else { return }
+        let viewModel = LogDetailViewModel(log: self.viewModel.logs[indexPath.row])
+        let vc = LogDetailViewController(viewModel: viewModel)
+        self.present(vc, animated: true)
     }
 }

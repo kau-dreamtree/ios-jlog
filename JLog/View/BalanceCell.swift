@@ -13,7 +13,7 @@ final class BalanceCell: UICollectionViewCell {
     
     private let balance: UILabel = {
         let label = UILabel()
-        label.font = .balanceFont
+        label.font = .topTitleFont
         label.textColor = .label
         return label
     }()
@@ -43,8 +43,4 @@ final class BalanceCell: UICollectionViewCell {
     func update(balance: String) {
         self.balance.text = balance
     }
-}
-
-private extension UIFont {
-    static let balanceFont = UIFont.systemFont(ofSize: 40, weight: .semibold)
 }
