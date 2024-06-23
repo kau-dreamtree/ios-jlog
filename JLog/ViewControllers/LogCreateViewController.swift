@@ -154,8 +154,11 @@ final class LogCreateViewController: JLogBaseViewController {
         self.enter.addAction(UIAction { [weak self] _ in
             guard let self,
                   let amountString = self.amountInput.text,
-                  let amount = Int(amountString)
-            else { return }
+                  let amount = Int(amountString),
+                  amount <= Int.amountLimit else {
+                self?.alert(with: "1억 이하의 금액만 입력 가능합니다.")
+                return
+            }
             let memo = self.memoInput.text
             self.enter(with: amount, memo: memo?.isEmpty == true ? nil : memo)
         }, for: .touchUpInside)
