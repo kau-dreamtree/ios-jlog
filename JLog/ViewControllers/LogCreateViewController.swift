@@ -155,11 +155,15 @@ final class LogCreateViewController: JLogBaseViewController {
             guard let self,
                   let amountString = self.amountInput.text,
                   let amount = Int(amountString),
-                  amount <= Int.amountLimit else {
+                  amount <= Constant.amountLimit else {
                 self?.alert(withLocalizableKey: "enter_under_amount_limit")
                 return
             }
             let memo = self.memoInput.text
+            if memo?.count ?? 0 > Constant.memoLimit {
+                self.alert(withLocalizableKey: "enter_under_memo_limit")
+                return
+            }
             self.enter(with: amount, memo: memo?.isEmpty == true ? nil : memo)
         }, for: .touchUpInside)
     }
@@ -188,6 +192,9 @@ final class LogCreateViewController: JLogBaseViewController {
         
         self.memoInput.addAction(UIAction { [weak self] _ in
             guard let self else { return }
+            if let memo = self.memoInput.text, memo.count > Constant.memoLimit {
+                self.memoInput.text = String(memo.prefix(50))
+            }
             let amount = self.amountInput.text ?? ""
             self.enter.isEnabled = amount.isEmpty == false
             self.enter.backgroundColor = amount.isEmpty == false ? .buttonOn : .buttonOff

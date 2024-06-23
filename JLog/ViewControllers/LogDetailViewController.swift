@@ -117,7 +117,7 @@ extension LogDetailViewController: UICollectionViewDelegateFlowLayout {
                                                 options: .usesLineFragmentOrigin,
                                                 attributes: [.font: UIFont.smallFont],
                                                 context: nil)
-            return CGSize(width: width, height: boundingBox.height + 60)
+            return CGSize(width: width, height: boundingBox.height + 85)
         }
         
     }

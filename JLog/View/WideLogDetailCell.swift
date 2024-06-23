@@ -59,20 +59,20 @@ final class WideLogDetailCell: UICollectionViewCell {
     private func setupLayout() {
         self.addSubviews([self.title, self.divider, self.content])
         NSLayoutConstraint.activate([
-            self.title.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            self.title.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
             self.title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20)
         ])
         NSLayoutConstraint.activate([
-            self.divider.topAnchor.constraint(equalTo: self.title.bottomAnchor, constant: 5),
+            self.divider.topAnchor.constraint(equalTo: self.title.bottomAnchor, constant: 10),
             self.divider.heightAnchor.constraint(equalToConstant: 1),
             self.divider.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             self.divider.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10)
         ])
         NSLayoutConstraint.activate([
-            self.content.topAnchor.constraint(equalTo: self.title.bottomAnchor, constant: 10),
+            self.content.topAnchor.constraint(equalTo: self.title.bottomAnchor, constant: 16),
             self.content.leadingAnchor.constraint(equalTo: self.title.leadingAnchor),
             self.content.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            self.content.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 10)
+            self.content.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 15)
         ])
     }
     

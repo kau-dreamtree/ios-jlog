@@ -13,7 +13,6 @@
 		4A04FA5B2C26699600F53DA1 /* LogDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA5A2C26699600F53DA1 /* LogDetailViewModel.swift */; };
 		4A04FA5D2C266D3900F53DA1 /* WideLogDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA5C2C266D3900F53DA1 /* WideLogDetailCell.swift */; };
 		4A04FA5F2C269A9A00F53DA1 /* TopLogDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA5E2C269A9A00F53DA1 /* TopLogDetailCell.swift */; };
-		4A04FA612C27B64B00F53DA1 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA602C27B64B00F53DA1 /* Int+Extension.swift */; };
 		4A6E83552B7F84E700B88238 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83542B7F84E700B88238 /* AppDelegate.swift */; };
 		4A6E83572B7F84E700B88238 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83562B7F84E700B88238 /* SceneDelegate.swift */; };
 		4A6E83592B7F84E700B88238 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83582B7F84E700B88238 /* RoomViewController.swift */; };
@@ -44,7 +43,6 @@
 		4A04FA5A2C26699600F53DA1 /* LogDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDetailViewModel.swift; sourceTree = "<group>"; };
 		4A04FA5C2C266D3900F53DA1 /* WideLogDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideLogDetailCell.swift; sourceTree = "<group>"; };
 		4A04FA5E2C269A9A00F53DA1 /* TopLogDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopLogDetailCell.swift; sourceTree = "<group>"; };
-		4A04FA602C27B64B00F53DA1 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		4A6E83512B7F84E700B88238 /* JLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6E83542B7F84E700B88238 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A6E83562B7F84E700B88238 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,7 +120,6 @@
 				4A6E83712B7F8D2600B88238 /* UIFont+Extension.swift */,
 				4A6E83732B7FB3F300B88238 /* Collection+Extension.swift */,
 				4A04FA542C2568B700F53DA1 /* String+Extension.swift */,
-				4A04FA602C27B64B00F53DA1 /* Int+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -264,7 +261,6 @@
 				4AF89A4D2B88805300E07CA2 /* LoadingView.swift in Sources */,
 				4A04FA592C2665E200F53DA1 /* NarrowLogDetailCell.swift in Sources */,
 				4A6E83762B7FB52700B88238 /* BalanceCell.swift in Sources */,
-				4A04FA612C27B64B00F53DA1 /* Int+Extension.swift in Sources */,
 				4A6E83552B7F84E700B88238 /* AppDelegate.swift in Sources */,
 				4A6E83702B7F8D0A00B88238 /* UIView+Extension.swift in Sources */,
 				4A04FA5B2C26699600F53DA1 /* LogDetailViewModel.swift in Sources */,
