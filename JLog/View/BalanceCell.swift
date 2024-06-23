@@ -15,6 +15,7 @@ final class BalanceCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .topTitleFont
         label.textColor = .label
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -36,7 +37,9 @@ final class BalanceCell: UICollectionViewCell {
         self.addSubviews([self.balance])
         NSLayoutConstraint.activate([
             self.balance.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.balance.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            self.balance.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            self.balance.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            self.balance.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
         ])
     }
     

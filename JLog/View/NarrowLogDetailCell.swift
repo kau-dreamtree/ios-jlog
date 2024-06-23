@@ -19,13 +19,14 @@ final class NarrowLogDetailCell: UICollectionViewCell {
     private let title: UILabel = {
         let label = UILabel()
         label.font = .regularFont
-        label.textColor = .secondaryLabel
+        label.textColor = .label
         return label
     }()
     private let content: UILabel = {
         let label = UILabel()
         label.font = .regularFont
         label.textColor = .label
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -56,7 +57,8 @@ final class NarrowLogDetailCell: UICollectionViewCell {
         ])
         NSLayoutConstraint.activate([
             self.content.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            self.content.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
+            self.content.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            self.content.leadingAnchor.constraint(greaterThanOrEqualTo: self.title.trailingAnchor, constant: 10)
         ])
     }
     

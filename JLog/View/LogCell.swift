@@ -39,6 +39,7 @@ final class LogCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .regularFont
         label.textColor = .label
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -72,6 +73,7 @@ final class LogCell: UICollectionViewCell {
             self.memo.leadingAnchor.constraint(equalTo: self.date.trailingAnchor, constant: 10)
         ])
         NSLayoutConstraint.activate([
+            self.amount.leadingAnchor.constraint(greaterThanOrEqualTo: self.memo.trailingAnchor, constant: 10),
             self.amount.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             self.amount.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
         ])

@@ -19,7 +19,7 @@ final class WideLogDetailCell: UICollectionViewCell {
     private let title: UILabel = {
         let label = UILabel()
         label.font = .regularFont
-        label.textColor = .secondaryLabel
+        label.textColor = .label
         return label
     }()
     private let divider: UIView = {

@@ -28,6 +28,7 @@ final class TopLogDetailCell: UICollectionViewCell {
         label.font = .topTitleFont
         label.textColor = .label
         label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
