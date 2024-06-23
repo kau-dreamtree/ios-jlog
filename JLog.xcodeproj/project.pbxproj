@@ -13,6 +13,33 @@
 		4A04FA5B2C26699600F53DA1 /* LogDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA5A2C26699600F53DA1 /* LogDetailViewModel.swift */; };
 		4A04FA5D2C266D3900F53DA1 /* WideLogDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA5C2C266D3900F53DA1 /* WideLogDetailCell.swift */; };
 		4A04FA5F2C269A9A00F53DA1 /* TopLogDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA5E2C269A9A00F53DA1 /* TopLogDetailCell.swift */; };
+		4A04FA7B2C27C23B00F53DA1 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E836C2B7F8B9600B88238 /* Constant.swift */; };
+		4A04FA7C2C27C25700F53DA1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83792B7FB56600B88238 /* Log.swift */; };
+		4A04FA7D2C27C25A00F53DA1 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF89A4C2B88805300E07CA2 /* LoadingView.swift */; };
+		4A04FA7E2C27C25C00F53DA1 /* JLogNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83832B7FC6F000B88238 /* JLogNetwork.swift */; };
+		4A04FA7F2C27C25E00F53DA1 /* JLogBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF89A4E2B8883BE00E07CA2 /* JLogBaseViewController.swift */; };
+		4A04FA802C27C26100F53DA1 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF89A572B91AA5800E07CA2 /* LocalizableStrings.swift */; };
+		4A04FA812C27C26300F53DA1 /* RoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E837B2B7FBDC900B88238 /* RoomViewModel.swift */; };
+		4A04FA822C27C26500F53DA1 /* LogDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA5A2C26699600F53DA1 /* LogDetailViewModel.swift */; };
+		4A04FA832C27C26700F53DA1 /* BalanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83752B7FB52700B88238 /* BalanceCell.swift */; };
+		4A04FA842C27C26900F53DA1 /* LogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83772B7FB54E00B88238 /* LogCell.swift */; };
+		4A04FA852C27C26B00F53DA1 /* NarrowLogDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA582C2665E200F53DA1 /* NarrowLogDetailCell.swift */; };
+		4A04FA862C27C27200F53DA1 /* TopLogDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA5E2C269A9A00F53DA1 /* TopLogDetailCell.swift */; };
+		4A04FA872C27C27400F53DA1 /* WideLogDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA5C2C266D3900F53DA1 /* WideLogDetailCell.swift */; };
+		4A04FA892C27C27A00F53DA1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83562B7F84E700B88238 /* SceneDelegate.swift */; };
+		4A04FA8A2C27C27D00F53DA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83542B7F84E700B88238 /* AppDelegate.swift */; };
+		4A04FA8B2C27C27F00F53DA1 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA542C2568B700F53DA1 /* String+Extension.swift */; };
+		4A04FA8E2C27C28D00F53DA1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E836F2B7F8D0A00B88238 /* UIView+Extension.swift */; };
+		4A04FA8F2C27C29000F53DA1 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83712B7F8D2600B88238 /* UIFont+Extension.swift */; };
+		4A04FA902C27C29300F53DA1 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83732B7FB3F300B88238 /* Collection+Extension.swift */; };
+		4A04FA912C27C29800F53DA1 /* LogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA562C2664FA00F53DA1 /* LogDetailViewController.swift */; };
+		4A04FA922C27C29A00F53DA1 /* LogCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E837D2B7FC03E00B88238 /* LogCreateViewController.swift */; };
+		4A04FA932C27C29C00F53DA1 /* EnteranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E836A2B7F884500B88238 /* EnteranceViewController.swift */; };
+		4A04FA942C27C29E00F53DA1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83682B7F881200B88238 /* LoginViewController.swift */; };
+		4A04FA952C27C2A100F53DA1 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83582B7F84E700B88238 /* RoomViewController.swift */; };
+		4A04FA962C27C3A700F53DA1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AF89A552B91A5CA00E07CA2 /* Localizable.strings */; };
+		4A04FA972C27C3BF00F53DA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E835F2B7F84E800B88238 /* LaunchScreen.storyboard */; };
+		4A04FA982C27C40900F53DA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E835D2B7F84E800B88238 /* Assets.xcassets */; };
 		4A6E83552B7F84E700B88238 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83542B7F84E700B88238 /* AppDelegate.swift */; };
 		4A6E83572B7F84E700B88238 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83562B7F84E700B88238 /* SceneDelegate.swift */; };
 		4A6E83592B7F84E700B88238 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83582B7F84E700B88238 /* RoomViewController.swift */; };
@@ -43,6 +70,7 @@
 		4A04FA5A2C26699600F53DA1 /* LogDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDetailViewModel.swift; sourceTree = "<group>"; };
 		4A04FA5C2C266D3900F53DA1 /* WideLogDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideLogDetailCell.swift; sourceTree = "<group>"; };
 		4A04FA5E2C269A9A00F53DA1 /* TopLogDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopLogDetailCell.swift; sourceTree = "<group>"; };
+		4A04FA662C27C1F400F53DA1 /* (dev)JLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(dev)JLog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6E83512B7F84E700B88238 /* JLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6E83542B7F84E700B88238 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A6E83562B7F84E700B88238 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +98,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4A04FA632C27C1F400F53DA1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A6E834E2B7F84E700B88238 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -92,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				4A6E83512B7F84E700B88238 /* JLog.app */,
+				4A04FA662C27C1F400F53DA1 /* (dev)JLog.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,6 +218,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4A04FA652C27C1F400F53DA1 /* (dev)JLog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A04FA772C27C1F600F53DA1 /* Build configuration list for PBXNativeTarget "(dev)JLog" */;
+			buildPhases = (
+				4A04FA622C27C1F400F53DA1 /* Sources */,
+				4A04FA632C27C1F400F53DA1 /* Frameworks */,
+				4A04FA642C27C1F400F53DA1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "(dev)JLog";
+			productName = "(dev)JLog";
+			productReference = 4A04FA662C27C1F400F53DA1 /* (dev)JLog.app */;
+			productType = "com.apple.product-type.application";
+		};
 		4A6E83502B7F84E700B88238 /* JLog */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A6E83652B7F84E800B88238 /* Build configuration list for PBXNativeTarget "JLog" */;
@@ -209,6 +262,9 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					4A04FA652C27C1F400F53DA1 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
 					4A6E83502B7F84E700B88238 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
@@ -229,11 +285,22 @@
 			projectRoot = "";
 			targets = (
 				4A6E83502B7F84E700B88238 /* JLog */,
+				4A04FA652C27C1F400F53DA1 /* (dev)JLog */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4A04FA642C27C1F400F53DA1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A04FA962C27C3A700F53DA1 /* Localizable.strings in Resources */,
+				4A04FA982C27C40900F53DA1 /* Assets.xcassets in Resources */,
+				4A04FA972C27C3BF00F53DA1 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A6E834F2B7F84E700B88238 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -247,6 +314,37 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4A04FA622C27C1F400F53DA1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A04FA8F2C27C29000F53DA1 /* UIFont+Extension.swift in Sources */,
+				4A04FA872C27C27400F53DA1 /* WideLogDetailCell.swift in Sources */,
+				4A04FA912C27C29800F53DA1 /* LogDetailViewController.swift in Sources */,
+				4A04FA822C27C26500F53DA1 /* LogDetailViewModel.swift in Sources */,
+				4A04FA8B2C27C27F00F53DA1 /* String+Extension.swift in Sources */,
+				4A04FA852C27C26B00F53DA1 /* NarrowLogDetailCell.swift in Sources */,
+				4A04FA7C2C27C25700F53DA1 /* Log.swift in Sources */,
+				4A04FA862C27C27200F53DA1 /* TopLogDetailCell.swift in Sources */,
+				4A04FA892C27C27A00F53DA1 /* SceneDelegate.swift in Sources */,
+				4A04FA7E2C27C25C00F53DA1 /* JLogNetwork.swift in Sources */,
+				4A04FA902C27C29300F53DA1 /* Collection+Extension.swift in Sources */,
+				4A04FA922C27C29A00F53DA1 /* LogCreateViewController.swift in Sources */,
+				4A04FA802C27C26100F53DA1 /* LocalizableStrings.swift in Sources */,
+				4A04FA812C27C26300F53DA1 /* RoomViewModel.swift in Sources */,
+				4A04FA8A2C27C27D00F53DA1 /* AppDelegate.swift in Sources */,
+				4A04FA932C27C29C00F53DA1 /* EnteranceViewController.swift in Sources */,
+				4A04FA7F2C27C25E00F53DA1 /* JLogBaseViewController.swift in Sources */,
+				4A04FA7B2C27C23B00F53DA1 /* Constant.swift in Sources */,
+				4A04FA832C27C26700F53DA1 /* BalanceCell.swift in Sources */,
+				4A04FA7D2C27C25A00F53DA1 /* LoadingView.swift in Sources */,
+				4A04FA8E2C27C28D00F53DA1 /* UIView+Extension.swift in Sources */,
+				4A04FA952C27C2A100F53DA1 /* RoomViewController.swift in Sources */,
+				4A04FA942C27C29E00F53DA1 /* LoginViewController.swift in Sources */,
+				4A04FA842C27C26900F53DA1 /* LogCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A6E834D2B7F84E700B88238 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -301,6 +399,64 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4A04FA782C27C1F600F53DA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4CLMD5ZPC3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JLog/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "(dev)JLOG";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dreamtree.dev.JLog;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4A04FA792C27C1F600F53DA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4CLMD5ZPC3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JLog/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "(dev)JLOG";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dreamtree.dev.JLog;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		4A6E83632B7F84E800B88238 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -487,6 +643,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4A04FA772C27C1F600F53DA1 /* Build configuration list for PBXNativeTarget "(dev)JLog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A04FA782C27C1F600F53DA1 /* Debug */,
+				4A04FA792C27C1F600F53DA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4A6E834C2B7F84E700B88238 /* Build configuration list for PBXProject "JLog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
