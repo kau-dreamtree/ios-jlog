@@ -85,8 +85,8 @@ final class LoginViewController: UIViewController {
             self.enter.isEnabled = username.isEmpty == false
             self.enter.backgroundColor = username.isEmpty == false ? .buttonOn : .buttonOff
             
-            if username.count > 5 {
-                self.name.text = String(username.prefix(5))
+            if username.count > Constant.usernameLimit {
+                self.name.text = String(username.prefix(Constant.usernameLimit))
             }
         }, for: .editingChanged)
     }
