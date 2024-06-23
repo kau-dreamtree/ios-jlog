@@ -187,6 +187,10 @@ struct EnteranceViewModel {
 }
 
 extension UIViewController {
+    func alert(withLocalizableKey key: String) {
+        self.alert(with: LocalizableStrings.localize(key))
+    }
+    
     func alert(with message: String) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: LocalizableStrings.localize("confirm"), style: .default, handler: nil)

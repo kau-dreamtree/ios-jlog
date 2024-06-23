@@ -22,4 +22,4 @@
 "memo" = "메모";
 "braced_optional" = "(선택)";
 "retry_upload" = "업로드에 실패하였습니다.\n잠시후 재시도 해주세요.";
-
+"enter_under_amount_limit" = "1억 이하의 금액만 입력 가능합니다.";

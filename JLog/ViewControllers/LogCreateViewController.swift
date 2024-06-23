@@ -156,7 +156,7 @@ final class LogCreateViewController: JLogBaseViewController {
                   let amountString = self.amountInput.text,
                   let amount = Int(amountString),
                   amount <= Int.amountLimit else {
-                self?.alert(with: "1억 이하의 금액만 입력 가능합니다.")
+                self?.alert(withLocalizableKey: "enter_under_amount_limit")
                 return
             }
             let memo = self.memoInput.text

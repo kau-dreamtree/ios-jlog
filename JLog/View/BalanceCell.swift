@@ -16,6 +16,7 @@ final class BalanceCell: UICollectionViewCell {
         label.font = .topTitleFont
         label.textColor = .label
         label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
         return label
     }()
     

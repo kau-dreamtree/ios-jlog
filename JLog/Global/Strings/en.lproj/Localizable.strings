@@ -22,4 +22,5 @@
 "memo" = "memo";
 "braced_optional" = "(optional)";
 "retry_upload" = "Upload failed.\nPlease retry in a few minutes.";
+"enter_under_amount_limit" = "You can enter amounts less than 100 million.";
 
