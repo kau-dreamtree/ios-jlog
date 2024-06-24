@@ -48,7 +48,11 @@ final class JLogNetwork {
         urlComponents.scheme = "http"
         urlComponents.host = self.host
         urlComponents.port = self.port
+        #if DEBUG
+        urlComponents.path = "/test\(api.path)"
+        #else
         urlComponents.path = api.path
+        #endif
         
         switch api.method {
         case .get(let queryItems) :
