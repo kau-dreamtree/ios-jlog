@@ -39,11 +39,10 @@
 		4A04FA952C27C2A100F53DA1 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83582B7F84E700B88238 /* RoomViewController.swift */; };
 		4A04FA962C27C3A700F53DA1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AF89A552B91A5CA00E07CA2 /* Localizable.strings */; };
 		4A04FA972C27C3BF00F53DA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E835F2B7F84E800B88238 /* LaunchScreen.storyboard */; };
-		4A04FA982C27C40900F53DA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E835D2B7F84E800B88238 /* Assets.xcassets */; };
+		4A04FA9B2C29768A00F53DA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E835D2B7F84E800B88238 /* Assets.xcassets */; };
 		4A6E83552B7F84E700B88238 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83542B7F84E700B88238 /* AppDelegate.swift */; };
 		4A6E83572B7F84E700B88238 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83562B7F84E700B88238 /* SceneDelegate.swift */; };
 		4A6E83592B7F84E700B88238 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83582B7F84E700B88238 /* RoomViewController.swift */; };
-		4A6E835E2B7F84E800B88238 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E835D2B7F84E800B88238 /* Assets.xcassets */; };
 		4A6E83612B7F84E800B88238 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E835F2B7F84E800B88238 /* LaunchScreen.storyboard */; };
 		4A6E83692B7F881200B88238 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83682B7F881200B88238 /* LoginViewController.swift */; };
 		4A6E836B2B7F884500B88238 /* EnteranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E836A2B7F884500B88238 /* EnteranceViewController.swift */; };
@@ -296,7 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A04FA962C27C3A700F53DA1 /* Localizable.strings in Resources */,
-				4A04FA982C27C40900F53DA1 /* Assets.xcassets in Resources */,
+				4A04FA9B2C29768A00F53DA1 /* Assets.xcassets in Resources */,
 				4A04FA972C27C3BF00F53DA1 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,7 +306,6 @@
 			files = (
 				4A6E83612B7F84E800B88238 /* LaunchScreen.storyboard in Resources */,
 				4AF89A532B91A5CA00E07CA2 /* Localizable.strings in Resources */,
-				4A6E835E2B7F84E800B88238 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,19 +400,19 @@
 		4A04FA782C27C1F600F53DA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = DevAppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4CLMD5ZPC3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JLog/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "(dev)JLOG";
+				INFOPLIST_KEY_CFBundleDisplayName = "(dev)제이로그";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -431,19 +429,19 @@
 		4A04FA792C27C1F600F53DA1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = DevAppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4CLMD5ZPC3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JLog/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "(dev)JLOG";
+				INFOPLIST_KEY_CFBundleDisplayName = "(dev)제이로그";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
