@@ -24,3 +24,5 @@
 "retry_upload" = "업로드에 실패하였습니다.\n잠시후 재시도 해주세요.";
 "enter_under_amount_limit" = "1억 이하의 금액만 입력 가능합니다.";
 "enter_under_memo_limit" = "메모를 50자 이하로 입력해주세요.";
+"created_date" = "생성일";
+"memo" = "메모";

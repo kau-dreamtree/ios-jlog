@@ -24,4 +24,5 @@
 "retry_upload" = "Upload failed.\nPlease retry in a few minutes.";
 "enter_under_amount_limit" = "You can enter amounts less than 100 million.";
 "enter_under_memo_limit" = "Please enter a note with 50 characters or fewer.";
-
+"created_date" = "Created";
+"memo" = "Memo";

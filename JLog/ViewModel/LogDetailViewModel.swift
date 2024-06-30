@@ -21,14 +21,14 @@ struct LogDetailViewModel: LogDetailViewModelProtocol {
     
     var narrowInfo: [NarrowLogDetailCell.ViewData] {
         var data: [NarrowLogDetailCell.ViewData] = []
-        data.append(.init(title: "생성일", content: self.log.stringCreatedAt))
+        data.append(.init(title: LocalizableStrings.localize("created_date"), content: self.log.stringCreatedAt))
         return data
     }
     
     var wideInfo: [WideLogDetailCell.ViewData] {
         var data: [WideLogDetailCell.ViewData] = []
         if let memo = self.log.memo {
-            data.append(.init(title: "메모", content: memo))
+            data.append(.init(title: LocalizableStrings.localize("memo"), content: memo))
         }
         return data
     }
