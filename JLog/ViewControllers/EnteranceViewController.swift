@@ -32,8 +32,8 @@ final class EnteranceViewController: JLogBaseViewController {
     private let enter: UIButton = {
         let button = UIButton()
         button.setTitle(LocalizableStrings.localize("enter"), for: .normal)
+        button.setTitleColor(.buttonTitle, for: .normal)
         button.titleLabel?.font = .regularFont
-        button.titleLabel?.textColor = .tertiaryLabel
         button.backgroundColor = .buttonOff
         button.layer.cornerRadius = 10
         return button
