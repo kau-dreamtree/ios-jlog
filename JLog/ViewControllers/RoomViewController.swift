@@ -63,11 +63,16 @@ final class RoomViewController: JLogBaseViewController {
         label.textColor = .label
         return label
     }()
-    private let code: UILabel = {
-        let label = UILabel()
-        label.font = .smallFont
-        label.textColor = .secondaryLabel
-        return label
+    private let code: UIButton = {
+        let button = UIButton()
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 10)
+        let image = UIImage(systemName: "doc.on.doc", withConfiguration: imageConfig)
+        button.setImage(image, for: .normal)
+        button.imageView?.contentMode = .scaleToFill
+        button.tintColor = .secondaryLabel
+        button.setTitleColor(.secondaryLabel, for: .normal)
+        button.titleLabel?.font = .smallFont
+        return button
     }()
     private let add: UIButton = {
         let button = UIButton()
@@ -129,7 +134,7 @@ final class RoomViewController: JLogBaseViewController {
     }
     
     private func setupCustomNavigationBar() {
-        self.code.text = "#\(self.viewModel.code)"
+        self.code.setTitle(self.viewModel.code, for: .normal)
         
         self.navigationBar.addSubviews([self.room, self.code, self.add])
         
@@ -164,6 +169,12 @@ final class RoomViewController: JLogBaseViewController {
     }
     
     private func setupButton() {
+        self.code.addAction(UIAction { [weak self] button in
+            guard let self, let text = (button.sender as? UIButton)?.title(for: .normal) else { return }
+            let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            self.present(activityViewController, animated: true, completion: nil)
+        }, for: .touchUpInside)
         self.add.addAction(UIAction { [weak self] _ in
             guard let self else { return }
             let viewModel = LogCreateViewModel(name: self.viewModel.name, code: self.viewModel.code)
