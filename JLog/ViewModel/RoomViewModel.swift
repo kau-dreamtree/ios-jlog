@@ -12,9 +12,7 @@ final class RoomViewModel {
     let code: String
     
     private var rawBalance: BalanceDTO? = nil
-    private(set) lazy var logs: [LogDTO] = {
-        return []
-    }()
+    private(set) var logs: [LogDTO] = []
     
     init(name: String, code: String) {
         self.name = name
@@ -35,6 +33,7 @@ extension RoomViewModel: RoomViewModelProtocol {
     }
     
     func searchLogs() async -> Bool {
+        let localLogs:[LogDTO] = await LocalStorageManager.shared.fetch().sorted(by: >)
         do {
             let (data, _) = try await JLogNetwork.shared.request(with: LogAPI.find(roomCode: self.code, username: self.name))
             let decoder = JSONDecoder()
@@ -42,9 +41,21 @@ extension RoomViewModel: RoomViewModelProtocol {
             let response = try decoder.decode(Response.self, from: data)
             self.rawBalance = response.balance
             self.logs = response.logs
+            self.saveLogs(localLogs, response.logs)
             return true
         } catch {
+            self.logs = localLogs
             return false
+        }
+    }
+    
+    private func saveLogs(_ oldValue: [LogDTO], _ newValue: [LogDTO]) {
+        let oldIDs = oldValue.map({ $0.id })
+        let newLogs = newValue.filter({ oldIDs.contains($0.id) == false })
+        Task {
+            for log in newLogs {
+                await LocalStorageManager.shared.insert(log)
+            }
         }
     }
     

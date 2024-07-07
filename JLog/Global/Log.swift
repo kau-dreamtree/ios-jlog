@@ -6,8 +6,22 @@
 //
 
 import Foundation
+import CoreData
 
-struct LogDTO: Codable {
+protocol DTOConverter {
+    associatedtype Origin: NSManagedObject
+    static var entityName: String { get }
+    
+    init(_: Origin)
+    
+    func setValue(at: Origin) -> Origin
+}
+
+struct LogDTO: Codable, DTOConverter {
+    typealias Origin = Log
+    
+    static var entityName: String { "Log" }
+    
     let id: Int64
     let amount: Int32
     let username: String
@@ -30,7 +44,7 @@ struct LogDTO: Codable {
         self.createdAt = createdAt
     }
     
-    init(log: Log) {
+    init(_ log: Log) {
         self.id = log.id
         self.amount = log.amount
         self.username = log.username
@@ -44,11 +58,46 @@ struct LogDTO: Codable {
         dateFormatter.dateFormat = "yy.MM.dd HH:mm"
         return dateFormatter.string(from: self.createdAt)
     }
+    
+    func setValue(at entity: Log) -> Log {
+        entity.setValue(self.id, forKey: "id")
+        entity.setValue(self.amount, forKey: "amount")
+        entity.setValue(self.username, forKey: "username")
+        entity.setValue(self.memo, forKey: "memo")
+        entity.setValue(self.createdAt, forKey: "createdAt")
+        return entity
+    }
 }
 
-struct BalanceDTO: Codable {
-    let amount: Int32
+extension LogDTO: Comparable {
+    static func < (lhs: LogDTO, rhs: LogDTO) -> Bool {
+        lhs.createdAt < rhs.createdAt
+    }
+}
+
+struct BalanceDTO: Codable, DTOConverter {
+    typealias Origin = Balance
+    
+    static var entityName: String { "Balance" }
+    
+    let amount: Int64
     let username: String
+    
+    init(amount: Int64, username: String) {
+        self.amount = amount
+        self.username = username
+    }
+    
+    init(_ balance: Balance) {
+        self.amount = balance.amount
+        self.username = balance.username
+    }
+    
+    func setValue(at entity: Balance) -> Balance {
+        entity.setValue(self.amount, forKey: "amount")
+        entity.setValue(self.username, forKey: "username")
+        return entity
+    }
 }
 
 extension Int32 {

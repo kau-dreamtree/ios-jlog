@@ -235,12 +235,11 @@ extension RoomViewController: RefreshRoomViewDelegate {
             self.add.isEnabled = false
             
             let result = await self.viewModel.searchLogs()
+            self.logs.reloadData()
             switch result {
-            case true : self.logs.reloadData()
-            case false : self.alert(with: LocalizableStrings.localize("retry_refresh"))
+            case true : self.add.isEnabled = true
+            case false : break
             }
-            
-            self.add.isEnabled = true
             self.didEndRefreshRoom()
         }
     }

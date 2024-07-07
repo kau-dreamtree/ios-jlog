@@ -21,17 +21,42 @@ final actor LocalStorageManager {
         return container
     }()
     
-    init() {}
+    private var context: NSManagedObjectContext {
+        return self.persistentContainer.viewContext
+    }
     
-    func saveContext() {
+    private init() {}
+    
+    func saveContext() -> Bool {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()
+                return true
             } catch {
                 let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                return false
             }
+        } else {
+            return false
         }
+    }
+    
+    func fetch<DTO: DTOConverter>() -> [DTO] {
+        do {
+//            let request = DTO.Origin.fetchRequest()
+            let request = NSFetchRequest<DTO.Origin>(entityName: DTO.entityName)
+            let fetchResult = try self.context.fetch(request) as! [DTO.Origin]
+            return fetchResult.map(DTO.init)
+        } catch {
+            return []
+        }
+    }
+    
+    func insert<DTO: DTOConverter>(_ dto: DTO) -> Bool {
+        guard let entity = NSEntityDescription.entity(forEntityName: DTO.entityName, in: self.context),
+              var origin = NSManagedObject(entity: entity, insertInto: self.context) as? DTO.Origin else { return false }
+        origin = dto.setValue(at: origin)
+        return saveContext()
     }
 }

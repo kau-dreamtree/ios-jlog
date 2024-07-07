@@ -17,7 +17,7 @@ extension Balance {
     }
 
     @NSManaged public var amount: Int64
-    @NSManaged public var username: String?
+    @NSManaged public var username: String
 
 }
 
