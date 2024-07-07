@@ -15,7 +15,7 @@ protocol RoomViewModelProtocol {
     var name: String { get }
     var code: String { get }
     var balance: String { get }
-    var logs: [Log] { get }
+    var logs: [LogDTO] { get }
     
     func searchLogs() async -> Bool
     func findLog(at: Int) -> LogCell.ViewData?

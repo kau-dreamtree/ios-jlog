@@ -9,7 +9,7 @@ import Foundation
 
 struct LogDetailViewModel: LogDetailViewModelProtocol {
     
-    private let log: Log
+    private let log: LogDTO
     
     var sectionCount: Int {
         return self.log.memo.isEmptyOrNil ? 2 : 3
@@ -33,7 +33,7 @@ struct LogDetailViewModel: LogDetailViewModelProtocol {
         return data
     }
     
-    init(log: Log) {
+    init(log: LogDTO) {
         self.log = log
     }
 }

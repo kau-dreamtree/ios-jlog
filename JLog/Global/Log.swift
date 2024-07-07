@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Log: Codable {
-    let id: Int
-    let amount: Int
+struct LogDTO: Codable {
+    let id: Int64
+    let amount: Int32
     let username: String
     let memo: String?
     let createdAt: Date
@@ -22,6 +22,22 @@ struct Log: Codable {
         case createdAt = "created_at"
     }
     
+    init(id: Int64, amount: Int32, username: String, memo: String?, createdAt: Date) {
+        self.id = id
+        self.amount = amount
+        self.username = username
+        self.memo = memo
+        self.createdAt = createdAt
+    }
+    
+    init(log: Log) {
+        self.id = log.id
+        self.amount = log.amount
+        self.username = log.username
+        self.memo = log.memo
+        self.createdAt = log.createdAt
+    }
+    
     var stringCreatedAt: String {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(identifier: "UTC")
@@ -30,12 +46,21 @@ struct Log: Codable {
     }
 }
 
-struct Balance: Codable {
-    let amount: Int
+struct BalanceDTO: Codable {
+    let amount: Int32
     let username: String
 }
 
-extension Int {
+extension Int32 {
+    var currency: String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale.current
+        return formatter.string(from: self as NSNumber)
+    }
+}
+
+extension Int64 {
     var currency: String? {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency

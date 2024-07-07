@@ -12,7 +12,7 @@ final class LogCell: UICollectionViewCell {
     static let identifier = "logCell"
     
     struct ViewData {
-        let log: Log
+        let log: LogDTO
         let isMine: Bool
     }
     

@@ -112,8 +112,8 @@ enum RoomAPI: JLogAPI {
 enum LogAPI: JLogAPI {
     case create(roomCode: String, username: String, amount: Int, memo: String?)
     case find(roomCode: String, username: String)
-    case modify(roomCode: String, username: String, logId: Int, amount: Int, memo: String?)
-    case delete(roomCode: String, username: String, logId: Int)
+    case modify(roomCode: String, username: String, logId: Int64, amount: Int, memo: String?)
+    case delete(roomCode: String, username: String, logId: Int64)
 
     var path: String {
         switch self {

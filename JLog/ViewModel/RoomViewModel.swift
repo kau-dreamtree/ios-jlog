@@ -11,8 +11,10 @@ final class RoomViewModel {
     let name: String
     let code: String
     
-    private var rawBalance: Balance? = nil
-    private(set) var logs: [Log] = []
+    private var rawBalance: BalanceDTO? = nil
+    private(set) lazy var logs: [LogDTO] = {
+        return []
+    }()
     
     init(name: String, code: String) {
         self.name = name
@@ -22,15 +24,14 @@ final class RoomViewModel {
 
 extension RoomViewModel: RoomViewModelProtocol {
     struct Response: Codable {
-        let balance: Balance
-        let logs: [Log]
+        let balance: BalanceDTO
+        let logs: [LogDTO]
     }
     
     var balance: String {
         guard let username = self.rawBalance?.username,
               let amount = self.rawBalance?.amount.currency else { return "?" }
         return "\(username) \(amount)"
-        
     }
     
     func searchLogs() async -> Bool {

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol LogCreateViewModelProtocol {
-    var log: Log? { get }
+    var log: LogDTO? { get }
     var enterTitle: String { get }
     
     func enter(with: Int, memo: String?) async -> Bool
@@ -246,7 +246,7 @@ struct LogCreateViewModel {
 extension LogCreateViewModel: LogCreateViewModelProtocol {
     
     var enterTitle: String { return LocalizableStrings.localize("create") }
-    var log: Log? { return nil }
+    var log: LogDTO? { return nil }
     
     func enter(with amount: Int, memo: String?) async -> Bool {
         do {
@@ -261,11 +261,11 @@ extension LogCreateViewModel: LogCreateViewModelProtocol {
 }
 
 struct LogModifyViewModel: LogCreateViewModelProtocol {
-    private let rawLog: Log
+    private let rawLog: LogDTO
     private let name: String
     private let code: String
     
-    init(name: String, code: String, log: Log) {
+    init(name: String, code: String, log: LogDTO) {
         self.name = name
         self.code = code
         self.rawLog = log
@@ -275,7 +275,7 @@ struct LogModifyViewModel: LogCreateViewModelProtocol {
 extension LogModifyViewModel {
     
     var enterTitle: String { return LocalizableStrings.localize("modify") }
-    var log: Log? { return self.rawLog }
+    var log: LogDTO? { return self.rawLog }
     
     func enter(with amount: Int, memo: String?) async -> Bool {
         do {
