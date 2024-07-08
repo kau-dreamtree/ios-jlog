@@ -53,6 +53,10 @@
 		4A04FADA2C3A9D0F00F53DA1 /* Balance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAD72C3A9D0F00F53DA1 /* Balance+CoreDataProperties.swift */; };
 		4A04FADB2C3A9D0F00F53DA1 /* Log+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAD82C3A9D0F00F53DA1 /* Log+CoreDataProperties.swift */; };
 		4A04FADC2C3A9D0F00F53DA1 /* Log+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAD82C3A9D0F00F53DA1 /* Log+CoreDataProperties.swift */; };
+		4A04FADF2C3AA0F500F53DA1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FADD2C3AA0F500F53DA1 /* SettingsViewController.swift */; };
+		4A04FAE12C3AC31600F53DA1 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAE02C3AC31600F53DA1 /* SettingCell.swift */; };
+		4A04FAE22C3AC31600F53DA1 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAE02C3AC31600F53DA1 /* SettingCell.swift */; };
+		4A04FAE32C3C039400F53DA1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FADD2C3AA0F500F53DA1 /* SettingsViewController.swift */; };
 		4A6E83552B7F84E700B88238 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83542B7F84E700B88238 /* AppDelegate.swift */; };
 		4A6E83572B7F84E700B88238 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83562B7F84E700B88238 /* SceneDelegate.swift */; };
 		4A6E83592B7F84E700B88238 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83582B7F84E700B88238 /* RoomViewController.swift */; };
@@ -89,6 +93,8 @@
 		4A04FAC62C3A92AB00F53DA1 /* Log+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Log+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4A04FAD72C3A9D0F00F53DA1 /* Balance+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Balance+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4A04FAD82C3A9D0F00F53DA1 /* Log+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Log+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4A04FADD2C3AA0F500F53DA1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4A04FAE02C3AC31600F53DA1 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		4A6E83512B7F84E700B88238 /* JLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6E83542B7F84E700B88238 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A6E83562B7F84E700B88238 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -198,6 +204,7 @@
 				4A6E836A2B7F884500B88238 /* EnteranceViewController.swift */,
 				4A6E837D2B7FC03E00B88238 /* LogCreateViewController.swift */,
 				4A04FA562C2664FA00F53DA1 /* LogDetailViewController.swift */,
+				4A04FADD2C3AA0F500F53DA1 /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -210,6 +217,7 @@
 				4A04FA582C2665E200F53DA1 /* NarrowLogDetailCell.swift */,
 				4A04FA5E2C269A9A00F53DA1 /* TopLogDetailCell.swift */,
 				4A04FA5C2C266D3900F53DA1 /* WideLogDetailCell.swift */,
+				4A04FAE02C3AC31600F53DA1 /* SettingCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -360,6 +368,7 @@
 				4A04FA852C27C26B00F53DA1 /* NarrowLogDetailCell.swift in Sources */,
 				4A04FA7C2C27C25700F53DA1 /* Log.swift in Sources */,
 				4A04FA862C27C27200F53DA1 /* TopLogDetailCell.swift in Sources */,
+				4A04FAE22C3AC31600F53DA1 /* SettingCell.swift in Sources */,
 				4A04FA892C27C27A00F53DA1 /* SceneDelegate.swift in Sources */,
 				4A04FA7E2C27C25C00F53DA1 /* JLogNetwork.swift in Sources */,
 				4A04FACD2C3A92AB00F53DA1 /* Log+CoreDataClass.swift in Sources */,
@@ -370,6 +379,7 @@
 				4A04FA812C27C26300F53DA1 /* RoomViewModel.swift in Sources */,
 				4A04FA8A2C27C27D00F53DA1 /* AppDelegate.swift in Sources */,
 				4A04FA932C27C29C00F53DA1 /* EnteranceViewController.swift in Sources */,
+				4A04FADF2C3AA0F500F53DA1 /* SettingsViewController.swift in Sources */,
 				4A04FA7F2C27C25E00F53DA1 /* JLogBaseViewController.swift in Sources */,
 				4A04FA7B2C27C23B00F53DA1 /* Constant.swift in Sources */,
 				4A04FA832C27C26700F53DA1 /* BalanceCell.swift in Sources */,
@@ -394,6 +404,7 @@
 				4A6E837E2B7FC03E00B88238 /* LogCreateViewController.swift in Sources */,
 				4A04FA552C2568B700F53DA1 /* String+Extension.swift in Sources */,
 				4A04FADB2C3A9D0F00F53DA1 /* Log+CoreDataProperties.swift in Sources */,
+				4A04FAE32C3C039400F53DA1 /* SettingsViewController.swift in Sources */,
 				4A6E83782B7FB54E00B88238 /* LogCell.swift in Sources */,
 				4A6E837A2B7FB56600B88238 /* Log.swift in Sources */,
 				4A6E83592B7F84E700B88238 /* RoomViewController.swift in Sources */,
@@ -411,6 +422,7 @@
 				4A04FA5F2C269A9A00F53DA1 /* TopLogDetailCell.swift in Sources */,
 				4AF89A582B91AA5800E07CA2 /* LocalizableStrings.swift in Sources */,
 				4A6E837C2B7FBDC900B88238 /* RoomViewModel.swift in Sources */,
+				4A04FAE12C3AC31600F53DA1 /* SettingCell.swift in Sources */,
 				4A6E83722B7F8D2600B88238 /* UIFont+Extension.swift in Sources */,
 				4A6E83742B7FB3F300B88238 /* Collection+Extension.swift in Sources */,
 				4A04FA5D2C266D3900F53DA1 /* WideLogDetailCell.swift in Sources */,

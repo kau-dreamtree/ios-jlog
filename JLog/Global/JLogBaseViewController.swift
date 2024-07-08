@@ -18,3 +18,7 @@ class JLogBaseViewController: UIViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 }
+
+class JLogBaseCollectionViewController: UICollectionViewController {
+    private(set) lazy var isLoading: LoadingView = LoadingView(view: self.collectionView, activityIndicatorStyle: .large)
+}

@@ -86,17 +86,17 @@ final class RoomViewController: JLogBaseViewController {
         
         return button
     }()
-    /**
-    private let info: UIButton = {
+    #if DEBUG
+    private let setting: UIButton = {
         let button = UIButton()
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 20)
-        let image = UIImage(systemName: "info.circle", withConfiguration: imageConfig)
+        let image = UIImage(systemName: "gearshape", withConfiguration: imageConfig)
         button.setImage(image, for: .normal)
         button.tintColor = .label
         button.imageView?.contentMode = .scaleToFill
         return button
     }()
-    **/
+    #endif
     
     init(viewModel: RoomViewModelProtocol) {
         self.viewModel = viewModel
@@ -162,14 +162,16 @@ final class RoomViewController: JLogBaseViewController {
             self.code.centerXAnchor.constraint(equalTo: navigationBar.centerXAnchor),
             self.code.bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: -10)
         ])
-        /**
+
+        #if DEBUG
+        self.navigationBar.addSubviews([self.setting])
         NSLayoutConstraint.activate([
-            self.info.centerYAnchor.constraint(equalTo: self.room.bottomAnchor, constant: -10),
-            self.info.leadingAnchor.constraint(equalTo: self.navigationBar.leadingAnchor, constant: 20),
-            self.info.heightAnchor.constraint(equalToConstant: 25),
-            self.info.widthAnchor.constraint(equalToConstant: 25)
+            self.setting.centerYAnchor.constraint(equalTo: self.room.bottomAnchor, constant: -10),
+            self.setting.leadingAnchor.constraint(equalTo: self.navigationBar.leadingAnchor, constant: 20),
+            self.setting.heightAnchor.constraint(equalToConstant: 25),
+            self.setting.widthAnchor.constraint(equalToConstant: 25)
         ])
-        **/
+        #endif
     }
     
     private func setupButton() {
@@ -179,6 +181,7 @@ final class RoomViewController: JLogBaseViewController {
             activityViewController.popoverPresentationController?.sourceView = self.view
             self.present(activityViewController, animated: true, completion: nil)
         }, for: .touchUpInside)
+        
         self.add.addAction(UIAction { [weak self] _ in
             guard let self else { return }
             let viewModel = LogCreateViewModel(name: self.viewModel.name, code: self.viewModel.code)
@@ -186,11 +189,12 @@ final class RoomViewController: JLogBaseViewController {
             self.present(vc, animated: true)
         }, for: .touchUpInside)
         
-        /**
-        self.info.addAction(UIAction { [weak self] _ in
-            // TODO: make info button action
-        }, for: .valueChanged)
-        **/
+        #if DEBUG
+        self.setting.addAction(UIAction { [weak self] _ in
+            let vc = SettingsViewController()
+            self?.present(vc, animated: true)
+        }, for: .touchUpInside)
+        #endif
     }
     
     private func swipeActions(for indexPath: IndexPath?) -> UISwipeActionsConfiguration? {

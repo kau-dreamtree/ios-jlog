@@ -59,4 +59,15 @@ final actor LocalStorageManager {
         origin = dto.setValue(at: origin)
         return saveContext()
     }
+    
+    func deleteAll<DTO: DTOConverter>() -> [DTO] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: DTO.entityName)
+        let delete = NSBatchDeleteRequest(fetchRequest: request)
+        do {
+            try self.context.execute(delete)
+            return []
+        } catch {
+            return []
+        }
+    }
 }
