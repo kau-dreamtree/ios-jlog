@@ -75,7 +75,7 @@ extension LogDTO: Comparable {
     }
 }
 
-struct BalanceDTO: Codable, DTOConverter {
+struct BalanceDTO: Codable, DTOConverter, Equatable {
     typealias Origin = Balance
     
     static var entityName: String { "Balance" }

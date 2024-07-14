@@ -34,6 +34,7 @@ extension RoomViewModel: RoomViewModelProtocol {
     
     func searchLogs() async -> Bool {
         let localLogs:[LogDTO] = await LocalStorageManager.shared.fetch().sorted(by: >)
+        let localBalance: BalanceDTO? = await LocalStorageManager.shared.fetch()
         do {
             let (data, _) = try await JLogNetwork.shared.request(with: LogAPI.find(roomCode: self.code, username: self.name))
             let decoder = JSONDecoder()
@@ -42,9 +43,11 @@ extension RoomViewModel: RoomViewModelProtocol {
             self.rawBalance = response.balance
             self.logs = response.logs
             self.saveLogs(localLogs, response.logs)
+            self.saveBalance(localBalance, response.balance)
             return true
         } catch {
             self.logs = localLogs
+            self.rawBalance = localBalance
             return false
         }
     }
@@ -56,6 +59,14 @@ extension RoomViewModel: RoomViewModelProtocol {
             for log in newLogs {
                 await LocalStorageManager.shared.insert(log)
             }
+        }
+    }
+    
+    private func saveBalance(_ oldValue: BalanceDTO?, _ newValue: BalanceDTO) {
+        guard oldValue != newValue else { return }
+        Task {
+            let _: [BalanceDTO] = await LocalStorageManager.shared.deleteAll()
+            await LocalStorageManager.shared.insert(newValue)
         }
     }
     

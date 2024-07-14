@@ -53,6 +53,18 @@ final actor LocalStorageManager {
         }
     }
     
+    func fetch<DTO: DTOConverter>() -> DTO? {
+        do {
+//            let request = DTO.Origin.fetchRequest()
+            let request = NSFetchRequest<DTO.Origin>(entityName: DTO.entityName)
+            guard let fetchResult = (try self.context.fetch(request) as [DTO.Origin]).first else { return nil }
+            return DTO.init(fetchResult)
+        } catch {
+            return nil
+        }
+    }
+    
+    @discardableResult
     func insert<DTO: DTOConverter>(_ dto: DTO) -> Bool {
         guard let entity = NSEntityDescription.entity(forEntityName: DTO.entityName, in: self.context),
               var origin = NSManagedObject(entity: entity, insertInto: self.context) as? DTO.Origin else { return false }
@@ -60,6 +72,7 @@ final actor LocalStorageManager {
         return saveContext()
     }
     
+    @discardableResult
     func deleteAll<DTO: DTOConverter>() -> [DTO] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: DTO.entityName)
         let delete = NSBatchDeleteRequest(fetchRequest: request)
