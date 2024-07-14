@@ -12,7 +12,14 @@ import UIKit
 final class SettingsViewController: JLogBaseCollectionViewController {
     
     enum DebugMenu: Int, CaseIterable {
-        case clearLogs = 0
+        case clearLogs = 0, clearBalance
+        
+        var title: String {
+            switch self {
+            case .clearLogs : "로그 데이터 초기화하기"
+            case .clearBalance : "총 잔액 데이터 초기화하기"
+            }
+        }
     }
     
     init() {
@@ -36,13 +43,15 @@ final class SettingsViewController: JLogBaseCollectionViewController {
     func action(with menu: DebugMenu) -> (() -> Void) {
         return {
             Task {
+                self.isLoading.activate()
                 switch menu {
                 case .clearLogs :
-                    self.isLoading.activate()
                     let _: [LogDTO] = await LocalStorageManager.shared.deleteAll()
-                    self.isLoading.deactivate()
-                    self.alert(with: "로그 초기화 완료")
+                case .clearBalance :
+                    let _: [BalanceDTO] = await LocalStorageManager.shared.deleteAll()
                 }
+                self.isLoading.deactivate()
+                self.alert(with: "\(menu.title) 완료")
             }
         }
     }
@@ -59,8 +68,9 @@ final class SettingsViewController: JLogBaseCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0 :
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SettingCell.identifier, for: indexPath) as? SettingCell else { return UICollectionViewCell() }
-            cell.update(title: "로그 초기화하기")
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SettingCell.identifier, for: indexPath) as? SettingCell,
+                  let menu = DebugMenu(rawValue: indexPath.row) else { return UICollectionViewCell() }
+            cell.update(title: menu.title)
             return cell
         default :
             return UICollectionViewCell()
