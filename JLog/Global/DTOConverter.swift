@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-protocol DTOConverter {
+protocol DTOConverter: Equatable {
     associatedtype Origin: NSManagedObject
     static var entityName: String { get }
     
@@ -16,7 +16,11 @@ protocol DTOConverter {
     
     init(_: Origin)
     
+    static func predicate(with: [Self]) -> NSPredicate?
+    
+    @discardableResult
     func setValue(at: Origin) -> Origin
+    
 }
 
 struct LogDTO: Codable, DTOConverter {
@@ -29,6 +33,10 @@ struct LogDTO: Codable, DTOConverter {
     let username: String
     let memo: String?
     let createdAt: Date
+    
+    static func predicate(with dtos: [LogDTO]) -> NSPredicate? {
+        return NSPredicate(format: "id IN %@", dtos.map(\.id))
+    }
     
     var predicate: NSPredicate? {
         return NSPredicate(format: "id == %lld", self.id)
@@ -83,7 +91,11 @@ struct LogDTO: Codable, DTOConverter {
     }
 }
 
-extension LogDTO: Comparable {
+extension LogDTO: Comparable, Equatable, Hashable {
+    static func == (lhs: LogDTO, rhs: LogDTO) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     static func < (lhs: LogDTO, rhs: LogDTO) -> Bool {
         lhs.createdAt < rhs.createdAt
     }
@@ -93,6 +105,10 @@ struct BalanceDTO: Codable, DTOConverter, Equatable {
     typealias Origin = Balance
     
     static var entityName: String { "Balance" }
+    
+    static func predicate(with dtos: [BalanceDTO]) -> NSPredicate? {
+        return nil
+    }
     
     let amount: Int64
     let username: String

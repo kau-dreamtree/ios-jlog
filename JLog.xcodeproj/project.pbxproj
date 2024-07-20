@@ -14,7 +14,7 @@
 		4A04FA5D2C266D3900F53DA1 /* WideLogDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA5C2C266D3900F53DA1 /* WideLogDetailCell.swift */; };
 		4A04FA5F2C269A9A00F53DA1 /* TopLogDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA5E2C269A9A00F53DA1 /* TopLogDetailCell.swift */; };
 		4A04FA7B2C27C23B00F53DA1 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E836C2B7F8B9600B88238 /* Constant.swift */; };
-		4A04FA7C2C27C25700F53DA1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83792B7FB56600B88238 /* Log.swift */; };
+		4A04FA7C2C27C25700F53DA1 /* DTOConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83792B7FB56600B88238 /* DTOConverter.swift */; };
 		4A04FA7D2C27C25A00F53DA1 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF89A4C2B88805300E07CA2 /* LoadingView.swift */; };
 		4A04FA7E2C27C25C00F53DA1 /* JLogNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83832B7FC6F000B88238 /* JLogNetwork.swift */; };
 		4A04FA7F2C27C25E00F53DA1 /* JLogBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF89A4E2B8883BE00E07CA2 /* JLogBaseViewController.swift */; };
@@ -57,6 +57,8 @@
 		4A04FAE12C3AC31600F53DA1 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAE02C3AC31600F53DA1 /* SettingCell.swift */; };
 		4A04FAE22C3AC31600F53DA1 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAE02C3AC31600F53DA1 /* SettingCell.swift */; };
 		4A04FAE32C3C039400F53DA1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FADD2C3AA0F500F53DA1 /* SettingsViewController.swift */; };
+		4A679E642C4B9F0B00134DB7 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A679E632C4B9F0B00134DB7 /* SettingsViewModel.swift */; };
+		4A679E652C4B9F4800134DB7 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A679E632C4B9F0B00134DB7 /* SettingsViewModel.swift */; };
 		4A6E83552B7F84E700B88238 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83542B7F84E700B88238 /* AppDelegate.swift */; };
 		4A6E83572B7F84E700B88238 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83562B7F84E700B88238 /* SceneDelegate.swift */; };
 		4A6E83592B7F84E700B88238 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83582B7F84E700B88238 /* RoomViewController.swift */; };
@@ -69,7 +71,7 @@
 		4A6E83742B7FB3F300B88238 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83732B7FB3F300B88238 /* Collection+Extension.swift */; };
 		4A6E83762B7FB52700B88238 /* BalanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83752B7FB52700B88238 /* BalanceCell.swift */; };
 		4A6E83782B7FB54E00B88238 /* LogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83772B7FB54E00B88238 /* LogCell.swift */; };
-		4A6E837A2B7FB56600B88238 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83792B7FB56600B88238 /* Log.swift */; };
+		4A6E837A2B7FB56600B88238 /* DTOConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83792B7FB56600B88238 /* DTOConverter.swift */; };
 		4A6E837C2B7FBDC900B88238 /* RoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E837B2B7FBDC900B88238 /* RoomViewModel.swift */; };
 		4A6E837E2B7FC03E00B88238 /* LogCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E837D2B7FC03E00B88238 /* LogCreateViewController.swift */; };
 		4A6E83842B7FC6F000B88238 /* JLogNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83832B7FC6F000B88238 /* JLogNetwork.swift */; };
@@ -95,6 +97,7 @@
 		4A04FAD82C3A9D0F00F53DA1 /* Log+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Log+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4A04FADD2C3AA0F500F53DA1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4A04FAE02C3AC31600F53DA1 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		4A679E632C4B9F0B00134DB7 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		4A6E83512B7F84E700B88238 /* JLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6E83542B7F84E700B88238 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A6E83562B7F84E700B88238 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,7 +113,7 @@
 		4A6E83732B7FB3F300B88238 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		4A6E83752B7FB52700B88238 /* BalanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceCell.swift; sourceTree = "<group>"; };
 		4A6E83772B7FB54E00B88238 /* LogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCell.swift; sourceTree = "<group>"; };
-		4A6E83792B7FB56600B88238 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		4A6E83792B7FB56600B88238 /* DTOConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOConverter.swift; sourceTree = "<group>"; };
 		4A6E837B2B7FBDC900B88238 /* RoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewModel.swift; sourceTree = "<group>"; };
 		4A6E837D2B7FC03E00B88238 /* LogCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCreateViewController.swift; sourceTree = "<group>"; };
 		4A6E83832B7FC6F000B88238 /* JLogNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLogNetwork.swift; sourceTree = "<group>"; };
@@ -227,6 +230,7 @@
 			children = (
 				4A6E837B2B7FBDC900B88238 /* RoomViewModel.swift */,
 				4A04FA5A2C26699600F53DA1 /* LogDetailViewModel.swift */,
+				4A679E632C4B9F0B00134DB7 /* SettingsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -237,7 +241,7 @@
 				4A04FAA92C3A899D00F53DA1 /* Models */,
 				4AF89A592B91AA6200E07CA2 /* Strings */,
 				4A6E836C2B7F8B9600B88238 /* Constant.swift */,
-				4A6E83792B7FB56600B88238 /* Log.swift */,
+				4A6E83792B7FB56600B88238 /* DTOConverter.swift */,
 				4A6E83832B7FC6F000B88238 /* JLogNetwork.swift */,
 				4AF89A4C2B88805300E07CA2 /* LoadingView.swift */,
 				4AF89A4E2B8883BE00E07CA2 /* JLogBaseViewController.swift */,
@@ -366,7 +370,8 @@
 				4A04FA8B2C27C27F00F53DA1 /* String+Extension.swift in Sources */,
 				4A04FADC2C3A9D0F00F53DA1 /* Log+CoreDataProperties.swift in Sources */,
 				4A04FA852C27C26B00F53DA1 /* NarrowLogDetailCell.swift in Sources */,
-				4A04FA7C2C27C25700F53DA1 /* Log.swift in Sources */,
+				4A679E652C4B9F4800134DB7 /* SettingsViewModel.swift in Sources */,
+				4A04FA7C2C27C25700F53DA1 /* DTOConverter.swift in Sources */,
 				4A04FA862C27C27200F53DA1 /* TopLogDetailCell.swift in Sources */,
 				4A04FAE22C3AC31600F53DA1 /* SettingCell.swift in Sources */,
 				4A04FA892C27C27A00F53DA1 /* SceneDelegate.swift in Sources */,
@@ -405,8 +410,9 @@
 				4A04FA552C2568B700F53DA1 /* String+Extension.swift in Sources */,
 				4A04FADB2C3A9D0F00F53DA1 /* Log+CoreDataProperties.swift in Sources */,
 				4A04FAE32C3C039400F53DA1 /* SettingsViewController.swift in Sources */,
+				4A679E642C4B9F0B00134DB7 /* SettingsViewModel.swift in Sources */,
 				4A6E83782B7FB54E00B88238 /* LogCell.swift in Sources */,
-				4A6E837A2B7FB56600B88238 /* Log.swift in Sources */,
+				4A6E837A2B7FB56600B88238 /* DTOConverter.swift in Sources */,
 				4A6E83592B7F84E700B88238 /* RoomViewController.swift in Sources */,
 				4AF89A4D2B88805300E07CA2 /* LoadingView.swift in Sources */,
 				4A04FA592C2665E200F53DA1 /* NarrowLogDetailCell.swift in Sources */,

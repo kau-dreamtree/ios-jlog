@@ -20,5 +20,5 @@ class JLogBaseViewController: UIViewController {
 }
 
 class JLogBaseCollectionViewController: UICollectionViewController {
-    private(set) lazy var isLoading: LoadingView = LoadingView(view: self.collectionView, activityIndicatorStyle: .large)
+    private(set) lazy var isLoading: LoadingView = LoadingView(view: self.view, activityIndicatorStyle: .large)
 }

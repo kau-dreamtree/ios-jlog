@@ -42,10 +42,11 @@ final actor LocalStorageManager {
         }
     }
     
-    func fetch<DTO: DTOConverter>() -> [DTO] {
+    func fetch<DTO: DTOConverter>(with predicate: NSPredicate? = nil) -> [DTO] {
         do {
 //            let request = DTO.Origin.fetchRequest()
             let request = NSFetchRequest<DTO.Origin>(entityName: DTO.entityName)
+            request.predicate = predicate
             let fetchResult = try self.context.fetch(request) as! [DTO.Origin]
             return fetchResult.map(DTO.init)
         } catch {
@@ -72,9 +73,23 @@ final actor LocalStorageManager {
         return saveContext()
     }
     
+    func insert<DTO: DTOConverter>(_ dto: [DTO]) -> Bool {
+        guard let entity = NSEntityDescription.entity(forEntityName: DTO.entityName, in: self.context) else { return false }
+        var isSuccess: Bool = true
+        dto.forEach { dto in
+            guard var origin = NSManagedObject(entity: entity, insertInto: self.context) as? DTO.Origin else {
+                isSuccess = false
+                return
+            }
+            origin = dto.setValue(at: origin)
+        }
+        return isSuccess && saveContext()
+    }
+    
     @discardableResult
-    func deleteAll<DTO: DTOConverter>() -> [DTO] {
+    func deleteAll<DTO: DTOConverter>(with predicate: NSPredicate? = nil) -> [DTO] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: DTO.entityName)
+        request.predicate = predicate
         let delete = NSBatchDeleteRequest(fetchRequest: request)
         do {
             try self.context.execute(delete)
@@ -95,6 +110,22 @@ final actor LocalStorageManager {
             return dto
         } catch {
             return nil
+        }
+    }
+    
+    func modify<DTO: DTOConverter>(to dtos: [DTO]) -> Bool {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: DTO.entityName)
+        request.predicate = DTO.predicate(with: dtos)
+        do {
+            guard let origins = try self.context.fetch(request) as? [DTO.Origin] else { return false }
+            origins.forEach { origin in
+                let dto = dtos.first(where: { $0 == DTO(origin) })
+                dto?.setValue(at: origin)
+            }
+            try self.context.save()
+            return true
+        } catch {
+            return false
         }
     }
     

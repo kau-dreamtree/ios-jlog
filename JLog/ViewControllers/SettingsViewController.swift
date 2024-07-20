@@ -9,20 +9,31 @@ import UIKit
 
 #if DEBUG
 
+protocol SettingsViewModelProtocol {
+    func syncAll() async -> Bool
+    func clearLogs() async -> Bool
+    func clearBalance() async -> Bool
+}
+
+// TODO: 디자인 수정하기
 final class SettingsViewController: JLogBaseCollectionViewController {
     
     enum DebugMenu: Int, CaseIterable {
-        case clearLogs = 0, clearBalance
+        case syncAll = 0, clearLogs, clearBalance
         
         var title: String {
             switch self {
+            case .syncAll : "동기화하기"
             case .clearLogs : "로그 데이터 초기화하기"
             case .clearBalance : "총 잔액 데이터 초기화하기"
             }
         }
     }
     
-    init() {
+    private let viewModel: SettingsViewModelProtocol
+    
+    init(viewModel: SettingsViewModelProtocol) {
+        self.viewModel = viewModel
         let config = UICollectionLayoutListConfiguration(appearance: .plain)
         let layout = UICollectionViewCompositionalLayout.list(using: config)
         super.init(collectionViewLayout: layout)
@@ -44,18 +55,22 @@ final class SettingsViewController: JLogBaseCollectionViewController {
         return {
             Task {
                 self.isLoading.activate()
+                let isSuccess: Bool
                 switch menu {
+                case .syncAll :
+                    isSuccess = await self.viewModel.syncAll()
                 case .clearLogs :
-                    let _: [LogDTO] = await LocalStorageManager.shared.deleteAll()
+                    isSuccess = await self.viewModel.clearLogs()
                 case .clearBalance :
-                    let _: [BalanceDTO] = await LocalStorageManager.shared.deleteAll()
+                    isSuccess = await self.viewModel.clearBalance()
                 }
                 self.isLoading.deactivate()
-                self.alert(with: "\(menu.title) 완료")
+                self.alert(with: "\(menu.title) \(isSuccess ? "완료" : "실패")")
             }
         }
     }
     
+    // MARK: UICollectionView
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }

@@ -191,8 +191,9 @@ final class RoomViewController: JLogBaseViewController {
         
         #if DEBUG
         self.setting.addAction(UIAction { [weak self] _ in
-            let vc = SettingsViewController()
-            self?.present(vc, animated: true)
+            guard let self else { return }
+            let vc = SettingsViewController(viewModel: SettingsViewModel(name: self.viewModel.name, code: self.viewModel.code))
+            self.present(vc, animated: true)
         }, for: .touchUpInside)
         #endif
     }
