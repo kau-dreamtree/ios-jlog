@@ -65,8 +65,11 @@ extension RoomViewModel: RoomViewModelProtocol {
     private func saveBalance(_ oldValue: BalanceDTO?, _ newValue: BalanceDTO) {
         guard oldValue != newValue else { return }
         Task {
-            let _: [BalanceDTO] = await LocalStorageManager.shared.deleteAll()
-            await LocalStorageManager.shared.insert(newValue)
+            if oldValue != nil {
+                await LocalStorageManager.shared.modify(to: newValue)
+            } else {
+                await LocalStorageManager.shared.insert(newValue)
+            }
         }
     }
     
@@ -81,6 +84,7 @@ extension RoomViewModel: RoomViewModelProtocol {
             let (_, response) = try await JLogNetwork.shared.request(with: LogAPI.delete(roomCode: self.code, username: self.name, logId: log.id))
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode,
                   (200..<300).contains(statusCode) else { return false }
+            await LocalStorageManager.shared.delete(log)
             return true
         } catch {
             return false

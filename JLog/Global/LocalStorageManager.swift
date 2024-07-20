@@ -83,4 +83,31 @@ final actor LocalStorageManager {
             return []
         }
     }
+    
+    @discardableResult
+    func modify<DTO: DTOConverter>(to dto: DTO) -> DTO? {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: DTO.entityName)
+        request.predicate = dto.predicate
+        do {
+            guard var origin = try self.context.fetch(request).first as? DTO.Origin else { return nil }
+            origin = dto.setValue(at: origin)
+            try self.context.save()
+            return dto
+        } catch {
+            return nil
+        }
+    }
+    
+    @discardableResult
+    func delete<DTO: DTOConverter>(_ dto: DTO) -> Bool {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: DTO.entityName)
+        request.predicate = dto.predicate
+        let delete = NSBatchDeleteRequest(fetchRequest: request)
+        do {
+            try self.context.execute(delete)
+            return true
+        } catch {
+            return false
+        }
+    }
 }

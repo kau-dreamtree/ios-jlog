@@ -12,6 +12,8 @@ protocol DTOConverter {
     associatedtype Origin: NSManagedObject
     static var entityName: String { get }
     
+    var predicate: NSPredicate? { get }
+    
     init(_: Origin)
     
     func setValue(at: Origin) -> Origin
@@ -28,6 +30,10 @@ struct LogDTO: Codable, DTOConverter {
     let memo: String?
     let createdAt: Date
     
+    var predicate: NSPredicate? {
+        return NSPredicate(format: "id == %lld", self.id)
+    }
+    
     enum CodingKeys: String, CodingKey {
         case id = "log_id"
         case amount
@@ -42,6 +48,14 @@ struct LogDTO: Codable, DTOConverter {
         self.username = username
         self.memo = memo
         self.createdAt = createdAt
+    }
+    
+    init(_ beforeDTO: LogDTO, amount: Int32, memo: String?) {
+        self.id = beforeDTO.id
+        self.amount = amount
+        self.username = beforeDTO.username
+        self.memo = memo
+        self.createdAt = beforeDTO.createdAt
     }
     
     init(_ log: Log) {
@@ -60,11 +74,11 @@ struct LogDTO: Codable, DTOConverter {
     }
     
     func setValue(at entity: Log) -> Log {
-        entity.setValue(self.id, forKey: "id")
-        entity.setValue(self.amount, forKey: "amount")
-        entity.setValue(self.username, forKey: "username")
-        entity.setValue(self.memo, forKey: "memo")
-        entity.setValue(self.createdAt, forKey: "createdAt")
+        entity.id = self.id
+        entity.amount = self.amount
+        entity.username = self.username
+        entity.memo = self.memo
+        entity.createdAt = self.createdAt
         return entity
     }
 }
@@ -82,6 +96,10 @@ struct BalanceDTO: Codable, DTOConverter, Equatable {
     
     let amount: Int64
     let username: String
+    
+    var predicate: NSPredicate? {
+        return nil
+    }
     
     init(amount: Int64, username: String) {
         self.amount = amount

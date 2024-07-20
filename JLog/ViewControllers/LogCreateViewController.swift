@@ -283,6 +283,8 @@ extension LogModifyViewModel {
             let (_, response) = try await JLogNetwork.shared.request(with: LogAPI.modify(roomCode: self.code, username: self.name, logId: log.id, amount: amount, memo: memo))
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode,
                   (200..<300).contains(statusCode) else { return false }
+            let modifiedLog = LogDTO(log, amount: Int32(amount), memo: memo)
+            await LocalStorageManager.shared.modify(to: modifiedLog)
             return true
         } catch {
             return false
