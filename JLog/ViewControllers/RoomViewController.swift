@@ -146,6 +146,10 @@ final class RoomViewController: JLogBaseViewController {
         self.navigationItem.titleView = self.navigationTitle
         self.navigationController?.isNavigationBarHidden = false
         
+        let backBarButton = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButton.tintColor = .label
+        self.navigationItem.backBarButtonItem = backBarButton
+        
         self.navigationTitle.addSubviews([self.room, self.code])
         
         NSLayoutConstraint.activate([

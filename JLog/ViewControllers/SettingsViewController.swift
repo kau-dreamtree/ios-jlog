@@ -63,9 +63,14 @@ final class SettingsViewController: JLogBaseCollectionViewController {
         super.viewDidLoad()
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        self.updateNavigationController()
     }
     
-    func action(with menu: any SettingsMenu) -> (() -> Void) {
+    private func updateNavigationController() {
+        self.navigationItem.title = "설정"
+    }
+    
+    private func action(with menu: any SettingsMenu) -> (() -> Void) {
         return {
             Task {
                 self.isLoading.activate()
