@@ -49,11 +49,11 @@ final class RoomViewController: JLogBaseViewController {
         return view
     }()
     
-    private let navigationBar: UIView = {
+    private lazy var navigationTitle: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemBackground
-        view.layer.borderWidth = 0.5
-        view.layer.borderColor = UIColor.opaqueSeparator.cgColor
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(codeButtonDidTouched)))
         return view
     }()
     private let room: UILabel = {
@@ -72,9 +72,10 @@ final class RoomViewController: JLogBaseViewController {
         button.tintColor = .secondaryLabel
         button.setTitleColor(.secondaryLabel, for: .normal)
         button.titleLabel?.font = .smallFont
+        button.isEnabled = false
         return button
     }()
-    private let add: UIButton = {
+    private lazy var add: UIButton = {
         let button = UIButton()
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 30)
         let image = UIImage(systemName: "plus", withConfiguration: imageConfig)
@@ -83,20 +84,16 @@ final class RoomViewController: JLogBaseViewController {
         button.imageView?.contentMode = .scaleToFill
         button.layer.cornerRadius = 25
         button.backgroundColor = .systemGray2
-        
+        button.addTarget(self, action: #selector(addButtonDidTouched), for: .touchUpInside)
         return button
     }()
-    #if DEBUG
-    private let setting: UIButton = {
-        let button = UIButton()
+    private lazy var setting: UIBarButtonItem = {
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 20)
         let image = UIImage(systemName: "gearshape", withConfiguration: imageConfig)
-        button.setImage(image, for: .normal)
+        let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(settingButtonDidTouched))
         button.tintColor = .label
-        button.imageView?.contentMode = .scaleToFill
         return button
     }()
-    #endif
     
     init(viewModel: RoomViewModelProtocol) {
         self.viewModel = viewModel
@@ -118,16 +115,15 @@ final class RoomViewController: JLogBaseViewController {
         self.view.backgroundColor = .systemBackground
         
         self.setupLayout()
-        self.setupButton()
         self.refreshRoom()
     }
     
     private func setupLayout() {
-        self.view.addSubviews([self.navigationBar, self.logs, self.add])
+        self.view.addSubviews([self.logs, self.add])
         
         NSLayoutConstraint.activate([
             self.logs.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            self.logs.topAnchor.constraint(equalTo: self.navigationBar.bottomAnchor),
+            self.logs.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             self.logs.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
             self.logs.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
             self.logs.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor)
@@ -140,62 +136,50 @@ final class RoomViewController: JLogBaseViewController {
             self.add.heightAnchor.constraint(equalToConstant: 50)
         ])
         
-        self.setupCustomNavigationBar()
+        self.setupNavigationBar()
     }
     
-    private func setupCustomNavigationBar() {
+    private func setupNavigationBar() {
         self.code.setTitle(self.viewModel.code, for: .normal)
         
-        self.navigationBar.addSubviews([self.room, self.code])
+        self.navigationItem.rightBarButtonItem = self.setting
+        self.navigationItem.titleView = self.navigationTitle
+        self.navigationController?.isNavigationBarHidden = false
+        
+        self.navigationTitle.addSubviews([self.room, self.code])
         
         NSLayoutConstraint.activate([
-            navigationBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: -1),
-            navigationBar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 1),
-            navigationBar.topAnchor.constraint(equalTo: self.view.topAnchor, constant: -1),
-            navigationBar.heightAnchor.constraint(equalToConstant: self.view.safeAreaInsets.top + 121)
+            self.navigationTitle.widthAnchor.constraint(equalToConstant: 100),
+            self.navigationTitle.heightAnchor.constraint(equalToConstant: 44)
         ])
         NSLayoutConstraint.activate([
-            self.room.centerXAnchor.constraint(equalTo: navigationBar.centerXAnchor),
+            self.room.centerXAnchor.constraint(equalTo: self.navigationTitle.centerXAnchor),
             self.room.bottomAnchor.constraint(equalTo: self.code.topAnchor)
         ])
         NSLayoutConstraint.activate([
-            self.code.centerXAnchor.constraint(equalTo: navigationBar.centerXAnchor),
-            self.code.bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: -10)
+            self.code.centerXAnchor.constraint(equalTo: self.navigationTitle.centerXAnchor),
+            self.code.bottomAnchor.constraint(equalTo: self.navigationTitle.bottomAnchor)
         ])
+    }
 
-        #if DEBUG
-        self.navigationBar.addSubviews([self.setting])
-        NSLayoutConstraint.activate([
-            self.setting.centerYAnchor.constraint(equalTo: self.room.bottomAnchor, constant: -10),
-            self.setting.leadingAnchor.constraint(equalTo: self.navigationBar.leadingAnchor, constant: 20),
-            self.setting.heightAnchor.constraint(equalToConstant: 25),
-            self.setting.widthAnchor.constraint(equalToConstant: 25)
-        ])
-        #endif
+    @objc
+    private func codeButtonDidTouched() {
+        let activityViewController = UIActivityViewController(activityItems: [self.viewModel.code], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
     }
     
-    private func setupButton() {
-        self.code.addAction(UIAction { [weak self] button in
-            guard let self, let text = (button.sender as? UIButton)?.title(for: .normal) else { return }
-            let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
-            activityViewController.popoverPresentationController?.sourceView = self.view
-            self.present(activityViewController, animated: true, completion: nil)
-        }, for: .touchUpInside)
-        
-        self.add.addAction(UIAction { [weak self] _ in
-            guard let self else { return }
-            let viewModel = LogCreateViewModel(name: self.viewModel.name, code: self.viewModel.code)
-            let vc = LogCreateViewController(viewModel: viewModel, delegate: self)
-            self.present(vc, animated: true)
-        }, for: .touchUpInside)
-        
-        #if DEBUG
-        self.setting.addAction(UIAction { [weak self] _ in
-            guard let self else { return }
-            let vc = SettingsViewController(viewModel: SettingsViewModel(name: self.viewModel.name, code: self.viewModel.code))
-            self.present(vc, animated: true)
-        }, for: .touchUpInside)
-        #endif
+    @objc
+    private func addButtonDidTouched() {
+        let viewModel = LogCreateViewModel(name: self.viewModel.name, code: self.viewModel.code)
+        let vc = LogCreateViewController(viewModel: viewModel, delegate: self)
+        self.present(vc, animated: true)
+    }
+    
+    @objc
+    private func settingButtonDidTouched() {
+        let vc = SettingsViewController(viewModel: SettingsViewModel(name: self.viewModel.name, code: self.viewModel.code))
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func swipeActions(for indexPath: IndexPath?) -> UISwipeActionsConfiguration? {

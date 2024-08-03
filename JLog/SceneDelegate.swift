@@ -18,7 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         if let username = UserDefaults.standard.string(forKey: Constant.usernameKey),
            let room = UserDefaults.standard.string(forKey: Constant.roomKey) {
-            window.rootViewController = RoomViewController(viewModel: RoomViewModel(name: username, code: room))
+            let vc = RoomViewController(viewModel: RoomViewModel(name: username, code: room))
+            let navigationController = UINavigationController(rootViewController: vc)
+            window.rootViewController = navigationController
         } else {
             window.rootViewController = LoginViewController()
         }

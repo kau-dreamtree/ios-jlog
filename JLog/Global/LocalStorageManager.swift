@@ -47,7 +47,7 @@ final actor LocalStorageManager {
 //            let request = DTO.Origin.fetchRequest()
             let request = NSFetchRequest<DTO.Origin>(entityName: DTO.entityName)
             request.predicate = predicate
-            let fetchResult = try self.context.fetch(request) as! [DTO.Origin]
+            let fetchResult = try self.context.fetch(request) 
             return fetchResult.map(DTO.init)
         } catch {
             return []
