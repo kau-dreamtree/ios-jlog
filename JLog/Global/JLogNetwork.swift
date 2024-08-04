@@ -17,7 +17,6 @@ final class JLogNetwork {
     static let shared = JLogNetwork()
     
     private let host: String = Constant.jlogHost
-    private let port: Int = Constant.jlogPort
     
     func request(with api: JLogAPI) async throws -> (Data, URLResponse) {
         do {
@@ -45,9 +44,8 @@ final class JLogNetwork {
     
     private func makeURLRequest(with api: JLogAPI) throws -> URLRequest {
         var urlComponents = URLComponents()
-        urlComponents.scheme = "http"
+        urlComponents.scheme = "https"
         urlComponents.host = self.host
-        urlComponents.port = self.port
         #if DEBUG
         urlComponents.path = "/test\(api.path)"
         #else
