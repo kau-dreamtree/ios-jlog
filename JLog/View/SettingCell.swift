@@ -12,7 +12,7 @@ final class SettingCell: UICollectionViewCell {
     
     private let title: UILabel = {
         let label = UILabel()
-        label.font = .regularFont
+        label.font = .smallFont
         label.textColor = .label
         return label
     }()
@@ -20,6 +20,8 @@ final class SettingCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupLayout()
+        
+        self.backgroundColor = .secondarySystemGroupedBackground
     }
     
     required init?(coder: NSCoder) {

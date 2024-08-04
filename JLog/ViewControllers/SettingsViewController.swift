@@ -48,7 +48,8 @@ final class SettingsViewController: JLogBaseCollectionViewController {
     
     init(viewModel: SettingsViewModelProtocol) {
         self.viewModel = viewModel
-        let config = UICollectionLayoutListConfiguration(appearance: .sidebar)
+        
+        let config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         let layout = UICollectionViewCompositionalLayout.list(using: config)
         super.init(collectionViewLayout: layout)
         
