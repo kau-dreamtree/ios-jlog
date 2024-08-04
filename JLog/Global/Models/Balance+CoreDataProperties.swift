@@ -2,7 +2,7 @@
 //  Balance+CoreDataProperties.swift
 //  JLog
 //
-//  Created by 이지수 on 7/7/24.
+//  Created by 이지수 on 8/4/24.
 //
 //
 

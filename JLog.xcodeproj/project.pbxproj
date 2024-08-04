@@ -49,14 +49,14 @@
 		4A04FACC2C3A92AB00F53DA1 /* Log+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAC62C3A92AB00F53DA1 /* Log+CoreDataClass.swift */; };
 		4A04FACD2C3A92AB00F53DA1 /* Log+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAC62C3A92AB00F53DA1 /* Log+CoreDataClass.swift */; };
 		4A04FAD02C3A95D900F53DA1 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAAD2C3A8C4200F53DA1 /* LocalStorageManager.swift */; };
-		4A04FAD92C3A9D0F00F53DA1 /* Balance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAD72C3A9D0F00F53DA1 /* Balance+CoreDataProperties.swift */; };
-		4A04FADA2C3A9D0F00F53DA1 /* Balance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAD72C3A9D0F00F53DA1 /* Balance+CoreDataProperties.swift */; };
-		4A04FADB2C3A9D0F00F53DA1 /* Log+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAD82C3A9D0F00F53DA1 /* Log+CoreDataProperties.swift */; };
-		4A04FADC2C3A9D0F00F53DA1 /* Log+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAD82C3A9D0F00F53DA1 /* Log+CoreDataProperties.swift */; };
 		4A04FADF2C3AA0F500F53DA1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FADD2C3AA0F500F53DA1 /* SettingsViewController.swift */; };
 		4A04FAE12C3AC31600F53DA1 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAE02C3AC31600F53DA1 /* SettingCell.swift */; };
 		4A04FAE22C3AC31600F53DA1 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAE02C3AC31600F53DA1 /* SettingCell.swift */; };
 		4A04FAE32C3C039400F53DA1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FADD2C3AA0F500F53DA1 /* SettingsViewController.swift */; };
+		4A5C17022C5F5222003B9C23 /* Log+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C17002C5F5222003B9C23 /* Log+CoreDataProperties.swift */; };
+		4A5C17032C5F5222003B9C23 /* Balance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C17012C5F5222003B9C23 /* Balance+CoreDataProperties.swift */; };
+		4A5C17042C5F56CF003B9C23 /* Log+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C17002C5F5222003B9C23 /* Log+CoreDataProperties.swift */; };
+		4A5C17052C5F56D4003B9C23 /* Balance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C17012C5F5222003B9C23 /* Balance+CoreDataProperties.swift */; };
 		4A679E642C4B9F0B00134DB7 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A679E632C4B9F0B00134DB7 /* SettingsViewModel.swift */; };
 		4A679E652C4B9F4800134DB7 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A679E632C4B9F0B00134DB7 /* SettingsViewModel.swift */; };
 		4A6E83552B7F84E700B88238 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83542B7F84E700B88238 /* AppDelegate.swift */; };
@@ -93,10 +93,10 @@
 		4A04FAAD2C3A8C4200F53DA1 /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
 		4A04FAC42C3A92AB00F53DA1 /* Balance+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Balance+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4A04FAC62C3A92AB00F53DA1 /* Log+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Log+CoreDataClass.swift"; sourceTree = "<group>"; };
-		4A04FAD72C3A9D0F00F53DA1 /* Balance+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Balance+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		4A04FAD82C3A9D0F00F53DA1 /* Log+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Log+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4A04FADD2C3AA0F500F53DA1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4A04FAE02C3AC31600F53DA1 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		4A5C17002C5F5222003B9C23 /* Log+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Log+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4A5C17012C5F5222003B9C23 /* Balance+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Balance+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4A679E632C4B9F0B00134DB7 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		4A6E83512B7F84E700B88238 /* JLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6E83542B7F84E700B88238 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -145,10 +145,10 @@
 		4A04FAA92C3A899D00F53DA1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4A04FAD72C3A9D0F00F53DA1 /* Balance+CoreDataProperties.swift */,
-				4A04FAD82C3A9D0F00F53DA1 /* Log+CoreDataProperties.swift */,
 				4A04FAC42C3A92AB00F53DA1 /* Balance+CoreDataClass.swift */,
+				4A5C17012C5F5222003B9C23 /* Balance+CoreDataProperties.swift */,
 				4A04FAC62C3A92AB00F53DA1 /* Log+CoreDataClass.swift */,
+				4A5C17002C5F5222003B9C23 /* Log+CoreDataProperties.swift */,
 				4A04FAAA2C3A89A800F53DA1 /* JLogModel.xcdatamodeld */,
 			);
 			path = Models;
@@ -368,7 +368,6 @@
 				4A04FA822C27C26500F53DA1 /* LogDetailViewModel.swift in Sources */,
 				4A04FAC92C3A92AB00F53DA1 /* Balance+CoreDataClass.swift in Sources */,
 				4A04FA8B2C27C27F00F53DA1 /* String+Extension.swift in Sources */,
-				4A04FADC2C3A9D0F00F53DA1 /* Log+CoreDataProperties.swift in Sources */,
 				4A04FA852C27C26B00F53DA1 /* NarrowLogDetailCell.swift in Sources */,
 				4A679E652C4B9F4800134DB7 /* SettingsViewModel.swift in Sources */,
 				4A04FA7C2C27C25700F53DA1 /* DTOConverter.swift in Sources */,
@@ -379,11 +378,11 @@
 				4A04FACD2C3A92AB00F53DA1 /* Log+CoreDataClass.swift in Sources */,
 				4A04FA902C27C29300F53DA1 /* Collection+Extension.swift in Sources */,
 				4A04FA922C27C29A00F53DA1 /* LogCreateViewController.swift in Sources */,
-				4A04FADA2C3A9D0F00F53DA1 /* Balance+CoreDataProperties.swift in Sources */,
 				4A04FA802C27C26100F53DA1 /* LocalizableStrings.swift in Sources */,
 				4A04FA812C27C26300F53DA1 /* RoomViewModel.swift in Sources */,
 				4A04FA8A2C27C27D00F53DA1 /* AppDelegate.swift in Sources */,
 				4A04FA932C27C29C00F53DA1 /* EnteranceViewController.swift in Sources */,
+				4A5C17042C5F56CF003B9C23 /* Log+CoreDataProperties.swift in Sources */,
 				4A04FADF2C3AA0F500F53DA1 /* SettingsViewController.swift in Sources */,
 				4A04FA7F2C27C25E00F53DA1 /* JLogBaseViewController.swift in Sources */,
 				4A04FA7B2C27C23B00F53DA1 /* Constant.swift in Sources */,
@@ -395,6 +394,7 @@
 				4A04FAD02C3A95D900F53DA1 /* LocalStorageManager.swift in Sources */,
 				4A04FA842C27C26900F53DA1 /* LogCell.swift in Sources */,
 				4A04FAAF2C3A8F8500F53DA1 /* JLogModel.xcdatamodeld in Sources */,
+				4A5C17052C5F56D4003B9C23 /* Balance+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +408,6 @@
 				4A6E83692B7F881200B88238 /* LoginViewController.swift in Sources */,
 				4A6E837E2B7FC03E00B88238 /* LogCreateViewController.swift in Sources */,
 				4A04FA552C2568B700F53DA1 /* String+Extension.swift in Sources */,
-				4A04FADB2C3A9D0F00F53DA1 /* Log+CoreDataProperties.swift in Sources */,
 				4A04FAE32C3C039400F53DA1 /* SettingsViewController.swift in Sources */,
 				4A679E642C4B9F0B00134DB7 /* SettingsViewModel.swift in Sources */,
 				4A6E83782B7FB54E00B88238 /* LogCell.swift in Sources */,
@@ -419,11 +418,11 @@
 				4A6E83762B7FB52700B88238 /* BalanceCell.swift in Sources */,
 				4A6E83552B7F84E700B88238 /* AppDelegate.swift in Sources */,
 				4A6E83702B7F8D0A00B88238 /* UIView+Extension.swift in Sources */,
-				4A04FAD92C3A9D0F00F53DA1 /* Balance+CoreDataProperties.swift in Sources */,
 				4A04FA5B2C26699600F53DA1 /* LogDetailViewModel.swift in Sources */,
 				4A6E836B2B7F884500B88238 /* EnteranceViewController.swift in Sources */,
 				4A04FA572C2664FA00F53DA1 /* LogDetailViewController.swift in Sources */,
 				4A6E83842B7FC6F000B88238 /* JLogNetwork.swift in Sources */,
+				4A5C17022C5F5222003B9C23 /* Log+CoreDataProperties.swift in Sources */,
 				4A6E83572B7F84E700B88238 /* SceneDelegate.swift in Sources */,
 				4A04FA5F2C269A9A00F53DA1 /* TopLogDetailCell.swift in Sources */,
 				4AF89A582B91AA5800E07CA2 /* LocalizableStrings.swift in Sources */,
@@ -435,6 +434,7 @@
 				4A6E836D2B7F8B9600B88238 /* Constant.swift in Sources */,
 				4A04FAAC2C3A89A800F53DA1 /* JLogModel.xcdatamodeld in Sources */,
 				4A04FAC82C3A92AB00F53DA1 /* Balance+CoreDataClass.swift in Sources */,
+				4A5C17032C5F5222003B9C23 /* Balance+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,7 +2,7 @@
 //  Log+CoreDataProperties.swift
 //  JLog
 //
-//  Created by 이지수 on 7/7/24.
+//  Created by 이지수 on 8/4/24.
 //
 //
 
@@ -16,11 +16,11 @@ extension Log {
         return NSFetchRequest<Log>(entityName: "Log")
     }
 
-    @NSManaged public var id: Int64
     @NSManaged public var amount: Int32
-    @NSManaged public var username: String
-    @NSManaged public var memo: String?
     @NSManaged public var createdAt: Date
+    @NSManaged public var id: Int64
+    @NSManaged public var memo: String?
+    @NSManaged public var username: String
 
 }
 
