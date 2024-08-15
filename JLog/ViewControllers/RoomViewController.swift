@@ -76,11 +76,14 @@ final class RoomViewController: JLogBaseViewController {
     }()
     private let add: UIButton = {
         let button = UIButton()
-        let imageConfig = UIImage.SymbolConfiguration(pointSize: 20)
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 30)
         let image = UIImage(systemName: "plus", withConfiguration: imageConfig)
         button.setImage(image, for: .normal)
-        button.tintColor = .label
+        button.tintColor = .systemBackground
         button.imageView?.contentMode = .scaleToFill
+        button.layer.cornerRadius = 25
+        button.backgroundColor = .systemGray2
+        
         return button
     }()
     /**
@@ -120,7 +123,7 @@ final class RoomViewController: JLogBaseViewController {
     }
     
     private func setupLayout() {
-        self.view.addSubviews([self.navigationBar, self.logs])
+        self.view.addSubviews([self.navigationBar, self.logs, self.add])
         
         NSLayoutConstraint.activate([
             self.logs.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
@@ -130,13 +133,20 @@ final class RoomViewController: JLogBaseViewController {
             self.logs.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor)
         ])
         
+        NSLayoutConstraint.activate([
+            self.add.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.add.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
+            self.add.widthAnchor.constraint(equalToConstant: 50),
+            self.add.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
         self.setupCustomNavigationBar()
     }
     
     private func setupCustomNavigationBar() {
         self.code.setTitle(self.viewModel.code, for: .normal)
         
-        self.navigationBar.addSubviews([self.room, self.code, self.add])
+        self.navigationBar.addSubviews([self.room, self.code])
         
         NSLayoutConstraint.activate([
             navigationBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: -1),
@@ -151,12 +161,6 @@ final class RoomViewController: JLogBaseViewController {
         NSLayoutConstraint.activate([
             self.code.centerXAnchor.constraint(equalTo: navigationBar.centerXAnchor),
             self.code.bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: -10)
-        ])
-        NSLayoutConstraint.activate([
-            self.add.centerYAnchor.constraint(equalTo: self.room.bottomAnchor, constant: -10),
-            self.add.trailingAnchor.constraint(equalTo: self.navigationBar.trailingAnchor, constant: -20),
-            self.add.heightAnchor.constraint(equalToConstant: 25),
-            self.add.widthAnchor.constraint(equalToConstant: 25)
         ])
         /**
         NSLayoutConstraint.activate([
