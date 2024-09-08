@@ -8,6 +8,43 @@
 import Foundation
 import Combine
 
+enum DataManageMenu: Int, SettingsMenu {
+    case liveBackUp = 0, syncAll = 1
+    
+    var title: String {
+        switch self {
+        case .liveBackUp : "실시간 백업"
+        case .syncAll : "동기화하기"
+        }
+    }
+    
+    var type: SettingsMenuType {
+        switch self {
+        case .liveBackUp : return .toggle
+        default : return .normal
+        }
+    }
+}
+
+#if DEBUG
+enum DebugMenu: Int, SettingsMenu {
+    case clearLogs = 0, clearBalance
+    
+    var title: String {
+        switch self {
+        case .clearLogs : "로그 데이터 초기화하기"
+        case .clearBalance : "총 잔액 데이터 초기화하기"
+        }
+    }
+    
+    var type: SettingsMenuType {
+        switch self {
+        default : return .normal
+        }
+    }
+}
+#endif
+
 final class SettingsViewModel: SettingsViewModelProtocol {
     
     struct Data {
@@ -29,6 +66,33 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         self.liveBackUpIsOn = UserDefaults.standard.bool(forKey: Constant.isBackUpOnKey)
     }
     
+    var numberOfSections: Int {
+        if self.liveBackUpIsOn {
+            #if DEBUG
+            return 2
+            #else
+            return 1
+            #endif
+        } else {
+            return 1
+        }
+    }
+    
+    
+    func cellCount(section: Int) -> Int {
+        switch (liveBackUpIsOn, section) {
+        case (false, 0) :
+            return 1
+        case (true, 0) :
+            return DataManageMenu.allCases.count
+        #if DEBUG
+        case (true, 1) :
+            return DebugMenu.allCases.count
+        #endif
+        default : return 0
+        }
+    }
+    
     func backUp(on isOn: Bool) async -> Bool {
         UserDefaults.standard.setValue(isOn, forKey: Constant.isBackUpOnKey)
         if isOn {
@@ -48,6 +112,7 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     }
     
     func syncAll() async -> Bool {
+        guard self.liveBackUpIsOn else { return false }
         do {
             let (data, _) = try await JLogNetwork.shared.request(with: LogAPI.find(roomCode: self.code, username: self.name))
             let decoder = JSONDecoder()
@@ -126,11 +191,13 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     }
     
     func clearLogs() async -> Bool {
+        guard self.liveBackUpIsOn else { return false }
         guard let _: [LogDTO] = await LocalStorageManager.shared.deleteAll() else { return false }
         return true
     }
     
     func clearBalance() async -> Bool {
+        guard self.liveBackUpIsOn else { return false }
         guard let _: [BalanceDTO] = await LocalStorageManager.shared.deleteAll() else { return false }
         return true
     }

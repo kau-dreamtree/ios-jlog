@@ -12,7 +12,9 @@ protocol SettingsViewModelProtocol {
     var liveBackUpIsOnPublisher: AnyPublisher<Bool, Never> { get }
     
     var liveBackUpIsOn: Bool { get }
+    var numberOfSections: Int { get }
     
+    func cellCount(section: Int) -> Int
     func update(on: SettingsViewModel.Data)
     func backUp(on: Bool) async -> Bool
     func syncAll() async -> Bool
@@ -33,43 +35,6 @@ protocol SettingsMenu: CaseIterable {
 }
 
 final class SettingsViewController: JLogBaseCollectionViewController {
-    
-    enum DataManageMenu: Int, SettingsMenu {
-        case liveBackUp = 0, syncAll = 1
-        
-        var title: String {
-            switch self {
-            case .liveBackUp : "실시간 백업"
-            case .syncAll : "동기화하기"
-            }
-        }
-        
-        var type: SettingsMenuType {
-            switch self {
-            case .liveBackUp : return .toggle
-            default : return .normal
-            }
-        }
-    }
-    
-    #if DEBUG
-    enum DebugMenu: Int, SettingsMenu {
-        case clearLogs = 0, clearBalance
-        
-        var title: String {
-            switch self {
-            case .clearLogs : "로그 데이터 초기화하기"
-            case .clearBalance : "총 잔액 데이터 초기화하기"
-            }
-        }
-        
-        var type: SettingsMenuType {
-            switch self {
-            default : return .normal
-            }
-        }
-    }
-    #endif
     
     private let viewModel: SettingsViewModelProtocol
     private var cancellables: Set<AnyCancellable> = Set()
@@ -101,7 +66,12 @@ final class SettingsViewController: JLogBaseCollectionViewController {
         self.viewModel.liveBackUpIsOnPublisher
             .dropFirst()
             .sink { [weak self] isOn in
-                self?.action(with: DataManageMenu.liveBackUp)(isOn)
+                guard let self, let cell = self.collectionView(self.collectionView, cellForItemAt: IndexPath(row: 0, section: 0)) as? ToggleSettingCell else { return }
+                let menu = DataManageMenu.liveBackUp
+                self.action(with: menu)(isOn)
+                cell.update(title: menu.title, isOn: isOn) { [weak self] isOn in
+                    self?.viewModel.update(on: .init(liveBackUpIsOn: isOn))
+                }
             }
             .store(in: &cancellables)
     }
@@ -112,12 +82,13 @@ final class SettingsViewController: JLogBaseCollectionViewController {
     
     private func action(with menu: any SettingsMenu) -> ((Bool?) -> Void) {
         return { isOn in
+            let isOn = isOn ?? false
             Task {
                 self.isLoading.activate()
                 let isSuccess: Bool
                 switch menu {
                 case DataManageMenu.liveBackUp :
-                    isSuccess = await self.viewModel.backUp(on: isOn ?? false)
+                    isSuccess = await self.viewModel.backUp(on: isOn)
                 case DataManageMenu.syncAll :
                     isSuccess = await self.viewModel.syncAll()
                 #if DEBUG
@@ -131,8 +102,13 @@ final class SettingsViewController: JLogBaseCollectionViewController {
                 }
                 self.isLoading.deactivate()
                 if menu.type == .toggle {
-                    let successMessage = (isOn ?? false) ? "시작" : "종료"
+                    let successMessage = isOn ? "시작" : "종료"
                     self.alert(with: "\(menu.title) \(successMessage) \(isSuccess ? "완료" : "실패")")
+                    if isSuccess == false {
+                        self.viewModel.update(on: .init(liveBackUpIsOn: !isOn))
+                    } else {
+                        self.collectionView.reloadData()
+                    }
                 }
                 self.alert(with: "\(menu.title) \(isSuccess ? "완료" : "실패")")
             }
@@ -141,21 +117,11 @@ final class SettingsViewController: JLogBaseCollectionViewController {
     
     // MARK: UICollectionView
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        #if DEBUG
-        return 2
-        #else
-        return 1
-        #endif
+        return self.viewModel.numberOfSections
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch section {
-        case 0 : return DataManageMenu.allCases.count
-        #if DEBUG
-        case 1 : return DebugMenu.allCases.count
-        #endif
-        default : return 0
-        }
+        return self.viewModel.cellCount(section: section)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

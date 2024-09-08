@@ -32,8 +32,12 @@ extension RoomViewModel: RoomViewModelProtocol {
         return "\(username) \(amount)"
     }
     
+    private var liveBackupInOn: Bool {
+        return UserDefaults.standard.bool(forKey: Constant.isBackUpOnKey)
+    }
+    
     func searchLogs() async -> Bool {
-        if UserDefaults.standard.bool(forKey: Constant.isBackUpOnKey) == true {
+        if self.liveBackupInOn {
             return await self.searchLogsWithLocalStorage()
         } else {
             return await self.searchLogsWithoutLocalStorage()
@@ -112,7 +116,9 @@ extension RoomViewModel: RoomViewModelProtocol {
             let (_, response) = try await JLogNetwork.shared.request(with: LogAPI.delete(roomCode: self.code, username: self.name, logId: log.id))
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode,
                   (200..<300).contains(statusCode) else { return false }
-            await LocalStorageManager.shared.delete(log)
+            if self.liveBackupInOn {
+                await LocalStorageManager.shared.delete(log)
+            }
             return true
         } catch {
             return false

@@ -54,6 +54,7 @@
 		4A04FAE22C3AC31600F53DA1 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAE02C3AC31600F53DA1 /* SettingCell.swift */; };
 		4A04FAE32C3C039400F53DA1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FADD2C3AA0F500F53DA1 /* SettingsViewController.swift */; };
 		4A4FB81B2C8D28890005B34E /* ToggleSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4FB81A2C8D28890005B34E /* ToggleSettingCell.swift */; };
+		4A4FB81C2C8D30610005B34E /* ToggleSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4FB81A2C8D28890005B34E /* ToggleSettingCell.swift */; };
 		4A5C17022C5F5222003B9C23 /* Log+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C17002C5F5222003B9C23 /* Log+CoreDataProperties.swift */; };
 		4A5C17032C5F5222003B9C23 /* Balance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C17012C5F5222003B9C23 /* Balance+CoreDataProperties.swift */; };
 		4A5C17042C5F56CF003B9C23 /* Log+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C17002C5F5222003B9C23 /* Log+CoreDataProperties.swift */; };
@@ -395,6 +396,7 @@
 				4A04FA952C27C2A100F53DA1 /* RoomViewController.swift in Sources */,
 				4A04FA942C27C29E00F53DA1 /* LoginViewController.swift in Sources */,
 				4A04FAD02C3A95D900F53DA1 /* LocalStorageManager.swift in Sources */,
+				4A4FB81C2C8D30610005B34E /* ToggleSettingCell.swift in Sources */,
 				4A04FA842C27C26900F53DA1 /* LogCell.swift in Sources */,
 				4A04FAAF2C3A8F8500F53DA1 /* JLogModel.xcdatamodeld in Sources */,
 				4A5C17052C5F56D4003B9C23 /* Balance+CoreDataProperties.swift in Sources */,
