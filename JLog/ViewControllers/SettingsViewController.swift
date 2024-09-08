@@ -6,27 +6,48 @@
 //
 
 import UIKit
+import Combine
 
 protocol SettingsViewModelProtocol {
+    var liveBackUpIsOnPublisher: AnyPublisher<Bool, Never> { get }
+    
+    var liveBackUpIsOn: Bool { get }
+    
+    func update(on: SettingsViewModel.Data)
+    func backUp(on: Bool) async -> Bool
     func syncAll() async -> Bool
     func clearLogs() async -> Bool
     func clearBalance() async -> Bool
+}
+
+enum SettingsMenuType {
+    case normal
+    case toggle
 }
 
 protocol SettingsMenu: CaseIterable {
     associatedtype RawValue = Int
     
     var title: String { get }
+    var type: SettingsMenuType { get }
 }
 
 final class SettingsViewController: JLogBaseCollectionViewController {
     
     enum DataManageMenu: Int, SettingsMenu {
-        case syncAll = 0
+        case liveBackUp = 0, syncAll = 1
         
         var title: String {
             switch self {
+            case .liveBackUp : "실시간 백업"
             case .syncAll : "동기화하기"
+            }
+        }
+        
+        var type: SettingsMenuType {
+            switch self {
+            case .liveBackUp : return .toggle
+            default : return .normal
             }
         }
     }
@@ -41,10 +62,17 @@ final class SettingsViewController: JLogBaseCollectionViewController {
             case .clearBalance : "총 잔액 데이터 초기화하기"
             }
         }
+        
+        var type: SettingsMenuType {
+            switch self {
+            default : return .normal
+            }
+        }
     }
     #endif
     
     private let viewModel: SettingsViewModelProtocol
+    private var cancellables: Set<AnyCancellable> = Set()
     
     init(viewModel: SettingsViewModelProtocol) {
         self.viewModel = viewModel
@@ -54,6 +82,7 @@ final class SettingsViewController: JLogBaseCollectionViewController {
         super.init(collectionViewLayout: layout)
         
         self.collectionView.register(SettingCell.self, forCellWithReuseIdentifier: SettingCell.identifier)
+        self.collectionView.register(ToggleSettingCell.self, forCellWithReuseIdentifier: ToggleSettingCell.identifier)
     }
     
     required init?(coder: NSCoder) {
@@ -65,18 +94,30 @@ final class SettingsViewController: JLogBaseCollectionViewController {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.updateNavigationController()
+        self.syncAction()
+    }
+    
+    private func syncAction() {
+        self.viewModel.liveBackUpIsOnPublisher
+            .dropFirst()
+            .sink { [weak self] isOn in
+                self?.action(with: DataManageMenu.liveBackUp)(isOn)
+            }
+            .store(in: &cancellables)
     }
     
     private func updateNavigationController() {
         self.navigationItem.title = "설정"
     }
     
-    private func action(with menu: any SettingsMenu) -> (() -> Void) {
-        return {
+    private func action(with menu: any SettingsMenu) -> ((Bool?) -> Void) {
+        return { isOn in
             Task {
                 self.isLoading.activate()
                 let isSuccess: Bool
                 switch menu {
+                case DataManageMenu.liveBackUp :
+                    isSuccess = await self.viewModel.backUp(on: isOn ?? false)
                 case DataManageMenu.syncAll :
                     isSuccess = await self.viewModel.syncAll()
                 #if DEBUG
@@ -89,6 +130,10 @@ final class SettingsViewController: JLogBaseCollectionViewController {
                     return
                 }
                 self.isLoading.deactivate()
+                if menu.type == .toggle {
+                    let successMessage = (isOn ?? false) ? "시작" : "종료"
+                    self.alert(with: "\(menu.title) \(successMessage) \(isSuccess ? "완료" : "실패")")
+                }
                 self.alert(with: "\(menu.title) \(isSuccess ? "완료" : "실패")")
             }
         }
@@ -113,9 +158,7 @@ final class SettingsViewController: JLogBaseCollectionViewController {
         }
     }
     
-    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SettingCell.identifier, for: indexPath) as? SettingCell else { return UICollectionViewCell() }
         let menu: (any SettingsMenu)?
         switch indexPath.section {
         case 0 : menu = DataManageMenu(rawValue: indexPath.row)
@@ -124,7 +167,18 @@ final class SettingsViewController: JLogBaseCollectionViewController {
         #endif
         default : return UICollectionViewCell()
         }
+        
         guard let menu else { return UICollectionViewCell() }
+        
+        if menu.type == .toggle {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ToggleSettingCell.identifier, for: indexPath) as? ToggleSettingCell
+            cell?.update(title: menu.title, isOn: viewModel.liveBackUpIsOn) { isOn in
+                self.viewModel.update(on: .init(liveBackUpIsOn: isOn))
+            }
+            return cell ?? UICollectionViewCell()
+        }
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SettingCell.identifier, for: indexPath) as? SettingCell else { return UICollectionViewCell() }
         cell.update(title: menu.title)
         return cell
     }
@@ -143,6 +197,11 @@ final class SettingsViewController: JLogBaseCollectionViewController {
         default : return
         }
         guard let menu else { return }
-        self.action(with: menu)()
+        
+        if menu.type == .toggle {
+            self.viewModel.update(on: .init(liveBackUpIsOn: !self.viewModel.liveBackUpIsOn))
+        } else {
+            self.action(with: menu)(nil)
+        }
     }
 }

@@ -6,9 +6,9 @@
 //
 import UIKit
 
-final class SettingCell: UICollectionViewCell {
+class SettingCell: UICollectionViewCell {
     
-    static let identifier = "settingCell"
+    class var identifier: String { return "settingCell" }
     
     private let title: UILabel = {
         let label = UILabel()
@@ -33,7 +33,7 @@ final class SettingCell: UICollectionViewCell {
         self.title.text = ""
     }
     
-    private func setupLayout() {
+    func setupLayout() {
         self.addSubviews([self.title])
         NSLayoutConstraint.activate([
             self.title.centerYAnchor.constraint(equalTo: self.centerYAnchor),

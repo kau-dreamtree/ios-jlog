@@ -33,22 +33,50 @@ extension RoomViewModel: RoomViewModelProtocol {
     }
     
     func searchLogs() async -> Bool {
-        let localLogs:[LogDTO] = await LocalStorageManager.shared.fetch().sorted(by: >)
-        let localBalance: BalanceDTO? = await LocalStorageManager.shared.fetch()
+        if UserDefaults.standard.bool(forKey: Constant.isBackUpOnKey) == true {
+            return await self.searchLogsWithLocalStorage()
+        } else {
+            return await self.searchLogsWithoutLocalStorage()
+        }
+    }
+    
+    private func searchLogsWithLocalStorage() async -> Bool {
+        let (localLogs, localBalance) = await self.fetchDataWithLocalStorage()
+        if let (serverLogs, serverBalance) = await self.fetchDataWithServer() {
+            self.logs = serverLogs
+            self.rawBalance = serverBalance
+            self.saveLogs(localLogs, serverLogs)
+            self.saveBalance(localBalance, serverBalance)
+            return true
+        } else {
+            self.logs = localLogs
+            self.rawBalance = localBalance
+            return false
+        }
+    }
+    
+    private func searchLogsWithoutLocalStorage() async -> Bool {
+        guard let (serverLogs, serverBalance) = await self.fetchDataWithServer() else { return false }
+        self.logs = serverLogs
+        self.rawBalance = serverBalance
+        return true
+    }
+    
+    private func fetchDataWithLocalStorage() async -> ([LogDTO], BalanceDTO?) {
+        let logs: [LogDTO] = await LocalStorageManager.shared.fetch().sorted(by: >)
+        let balance: BalanceDTO? = await LocalStorageManager.shared.fetch()
+        return (logs, balance)
+    }
+    
+    private func fetchDataWithServer() async -> ([LogDTO], BalanceDTO)? {
         do {
             let (data, _) = try await JLogNetwork.shared.request(with: LogAPI.find(roomCode: self.code, username: self.name))
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
             let response = try decoder.decode(Response.self, from: data)
-            self.rawBalance = response.balance
-            self.logs = response.logs
-            self.saveLogs(localLogs, response.logs)
-            self.saveBalance(localBalance, response.balance)
-            return true
+            return (response.logs, response.balance)
         } catch {
-            self.logs = localLogs
-            self.rawBalance = localBalance
-            return false
+            return nil
         }
     }
     

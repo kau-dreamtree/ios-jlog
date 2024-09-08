@@ -87,7 +87,7 @@ final actor LocalStorageManager {
     }
     
     @discardableResult
-    func deleteAll<DTO: DTOConverter>(with predicate: NSPredicate? = nil) -> [DTO] {
+    func deleteAll<DTO: DTOConverter>(with predicate: NSPredicate? = nil) -> [DTO]? {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: DTO.entityName)
         request.predicate = predicate
         let delete = NSBatchDeleteRequest(fetchRequest: request)
@@ -95,7 +95,7 @@ final actor LocalStorageManager {
             try self.context.execute(delete)
             return []
         } catch {
-            return []
+            return nil
         }
     }
     

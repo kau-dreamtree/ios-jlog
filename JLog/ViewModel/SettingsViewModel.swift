@@ -6,14 +6,45 @@
 //
 
 import Foundation
+import Combine
 
 final class SettingsViewModel: SettingsViewModelProtocol {
+    
+    struct Data {
+        let liveBackUpIsOn: Bool
+    }
+    
     let name: String
     let code: String
+    
+    var liveBackUpIsOnPublisher: AnyPublisher<Bool, Never> {
+        return $liveBackUpIsOn.eraseToAnyPublisher()
+    }
+    
+    @Published private(set) var liveBackUpIsOn: Bool
     
     init(name: String, code: String) {
         self.name = name
         self.code = code
+        self.liveBackUpIsOn = UserDefaults.standard.bool(forKey: Constant.isBackUpOnKey)
+    }
+    
+    func backUp(on isOn: Bool) async -> Bool {
+        UserDefaults.standard.setValue(isOn, forKey: Constant.isBackUpOnKey)
+        if isOn {
+            return await syncAll()
+        } else {
+            return await deleteAll()
+        }
+    }
+    
+    private func deleteAll() async -> Bool {
+        if let _: [LogDTO] = await LocalStorageManager.shared.deleteAll(),
+           let _: [BalanceDTO] = await LocalStorageManager.shared.deleteAll() {
+            return true
+        } else {
+            return false
+        }
     }
     
     func syncAll() async -> Bool {
@@ -49,7 +80,9 @@ final class SettingsViewModel: SettingsViewModelProtocol {
         let needToDeleteIDs = Set(duplicatedIDs + deletedIDs)
         if needToDeleteIDs.isEmpty == false {
             let predicate = NSPredicate(format: "id IN %@", Array(needToDeleteIDs))
-            let _: [LogDTO] = await LocalStorageManager.shared.deleteAll(with: predicate)
+            guard let _: [LogDTO] = await LocalStorageManager.shared.deleteAll(with: predicate) else {
+                return false
+            }
             oldSet = oldSet.filter({ needToDeleteIDs.contains($0.id) == false })
         }
         
@@ -93,12 +126,16 @@ final class SettingsViewModel: SettingsViewModelProtocol {
     }
     
     func clearLogs() async -> Bool {
-        let _: [LogDTO] = await LocalStorageManager.shared.deleteAll()
+        guard let _: [LogDTO] = await LocalStorageManager.shared.deleteAll() else { return false }
         return true
     }
     
     func clearBalance() async -> Bool {
-        let _: [BalanceDTO] = await LocalStorageManager.shared.deleteAll()
+        guard let _: [BalanceDTO] = await LocalStorageManager.shared.deleteAll() else { return false }
         return true
+    }
+    
+    func update(on data: Data) {
+        self.liveBackUpIsOn = data.liveBackUpIsOn
     }
 }
