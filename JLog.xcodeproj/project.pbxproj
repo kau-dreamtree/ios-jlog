@@ -39,27 +39,18 @@
 		4A04FA952C27C2A100F53DA1 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83582B7F84E700B88238 /* RoomViewController.swift */; };
 		4A04FA962C27C3A700F53DA1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AF89A552B91A5CA00E07CA2 /* Localizable.strings */; };
 		4A04FA972C27C3BF00F53DA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E835F2B7F84E800B88238 /* LaunchScreen.storyboard */; };
-		4A04FAA02C31949E00F53DA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E835D2B7F84E800B88238 /* Assets.xcassets */; };
-		4A04FAA12C3194A000F53DA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E835D2B7F84E800B88238 /* Assets.xcassets */; };
-		4A04FAAC2C3A89A800F53DA1 /* JLogModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAAA2C3A89A800F53DA1 /* JLogModel.xcdatamodeld */; };
 		4A04FAAE2C3A8C4200F53DA1 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAAD2C3A8C4200F53DA1 /* LocalStorageManager.swift */; };
 		4A04FAAF2C3A8F8500F53DA1 /* JLogModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAAA2C3A89A800F53DA1 /* JLogModel.xcdatamodeld */; };
 		4A04FAC82C3A92AB00F53DA1 /* Balance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAC42C3A92AB00F53DA1 /* Balance+CoreDataClass.swift */; };
 		4A04FAC92C3A92AB00F53DA1 /* Balance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAC42C3A92AB00F53DA1 /* Balance+CoreDataClass.swift */; };
-		4A04FACC2C3A92AB00F53DA1 /* Log+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAC62C3A92AB00F53DA1 /* Log+CoreDataClass.swift */; };
 		4A04FACD2C3A92AB00F53DA1 /* Log+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAC62C3A92AB00F53DA1 /* Log+CoreDataClass.swift */; };
 		4A04FAD02C3A95D900F53DA1 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAAD2C3A8C4200F53DA1 /* LocalStorageManager.swift */; };
 		4A04FADF2C3AA0F500F53DA1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FADD2C3AA0F500F53DA1 /* SettingsViewController.swift */; };
-		4A04FAE12C3AC31600F53DA1 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAE02C3AC31600F53DA1 /* SettingCell.swift */; };
 		4A04FAE22C3AC31600F53DA1 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAE02C3AC31600F53DA1 /* SettingCell.swift */; };
-		4A04FAE32C3C039400F53DA1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FADD2C3AA0F500F53DA1 /* SettingsViewController.swift */; };
-		4A4FB81B2C8D28890005B34E /* ToggleSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4FB81A2C8D28890005B34E /* ToggleSettingCell.swift */; };
 		4A4FB81C2C8D30610005B34E /* ToggleSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4FB81A2C8D28890005B34E /* ToggleSettingCell.swift */; };
-		4A5C17022C5F5222003B9C23 /* Log+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C17002C5F5222003B9C23 /* Log+CoreDataProperties.swift */; };
 		4A5C17032C5F5222003B9C23 /* Balance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C17012C5F5222003B9C23 /* Balance+CoreDataProperties.swift */; };
 		4A5C17042C5F56CF003B9C23 /* Log+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C17002C5F5222003B9C23 /* Log+CoreDataProperties.swift */; };
 		4A5C17052C5F56D4003B9C23 /* Balance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C17012C5F5222003B9C23 /* Balance+CoreDataProperties.swift */; };
-		4A679E642C4B9F0B00134DB7 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A679E632C4B9F0B00134DB7 /* SettingsViewModel.swift */; };
 		4A679E652C4B9F4800134DB7 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A679E632C4B9F0B00134DB7 /* SettingsViewModel.swift */; };
 		4A6E83552B7F84E700B88238 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83542B7F84E700B88238 /* AppDelegate.swift */; };
 		4A6E83572B7F84E700B88238 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83562B7F84E700B88238 /* SceneDelegate.swift */; };
@@ -77,6 +68,52 @@
 		4A6E837C2B7FBDC900B88238 /* RoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E837B2B7FBDC900B88238 /* RoomViewModel.swift */; };
 		4A6E837E2B7FC03E00B88238 /* LogCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E837D2B7FC03E00B88238 /* LogCreateViewController.swift */; };
 		4A6E83842B7FC6F000B88238 /* JLogNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83832B7FC6F000B88238 /* JLogNetwork.swift */; };
+		4AF091842CA0071500B5A7C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E835D2B7F84E800B88238 /* Assets.xcassets */; };
+		4AF091852CA0071500B5A7C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E835D2B7F84E800B88238 /* Assets.xcassets */; };
+		4AF091A02CA0225C00B5A7C8 /* JLogModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAAA2C3A89A800F53DA1 /* JLogModel.xcdatamodeld */; };
+		4AF091A12CA0225E00B5A7C8 /* Log+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C17002C5F5222003B9C23 /* Log+CoreDataProperties.swift */; };
+		4AF091A22CA0226100B5A7C8 /* Log+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAC62C3A92AB00F53DA1 /* Log+CoreDataClass.swift */; };
+		4AF091AD2CA0231700B5A7C8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FADD2C3AA0F500F53DA1 /* SettingsViewController.swift */; };
+		4AF091AE2CA0231D00B5A7C8 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAE02C3AC31600F53DA1 /* SettingCell.swift */; };
+		4AF091AF2CA0231F00B5A7C8 /* ToggleSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4FB81A2C8D28890005B34E /* ToggleSettingCell.swift */; };
+		4AF091B02CA0233600B5A7C8 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A679E632C4B9F0B00134DB7 /* SettingsViewModel.swift */; };
+		4AF091B32CA02A6700B5A7C8 /* JLogBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF89A4E2B8883BE00E07CA2 /* JLogBaseViewController.swift */; };
+		4AF091B42CA02A6700B5A7C8 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAAD2C3A8C4200F53DA1 /* LocalStorageManager.swift */; };
+		4AF091B52CA02A6700B5A7C8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83682B7F881200B88238 /* LoginViewController.swift */; };
+		4AF091B62CA02A6700B5A7C8 /* LogCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E837D2B7FC03E00B88238 /* LogCreateViewController.swift */; };
+		4AF091B72CA02A6700B5A7C8 /* Log+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAC62C3A92AB00F53DA1 /* Log+CoreDataClass.swift */; };
+		4AF091B82CA02A6700B5A7C8 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA542C2568B700F53DA1 /* String+Extension.swift */; };
+		4AF091B92CA02A6700B5A7C8 /* LogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83772B7FB54E00B88238 /* LogCell.swift */; };
+		4AF091BA2CA02A6700B5A7C8 /* DTOConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83792B7FB56600B88238 /* DTOConverter.swift */; };
+		4AF091BB2CA02A6700B5A7C8 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83582B7F84E700B88238 /* RoomViewController.swift */; };
+		4AF091BC2CA02A6700B5A7C8 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF89A4C2B88805300E07CA2 /* LoadingView.swift */; };
+		4AF091BD2CA02A6700B5A7C8 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAE02C3AC31600F53DA1 /* SettingCell.swift */; };
+		4AF091BE2CA02A6700B5A7C8 /* NarrowLogDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA582C2665E200F53DA1 /* NarrowLogDetailCell.swift */; };
+		4AF091BF2CA02A6700B5A7C8 /* BalanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83752B7FB52700B88238 /* BalanceCell.swift */; };
+		4AF091C02CA02A6700B5A7C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83542B7F84E700B88238 /* AppDelegate.swift */; };
+		4AF091C12CA02A6700B5A7C8 /* ToggleSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4FB81A2C8D28890005B34E /* ToggleSettingCell.swift */; };
+		4AF091C22CA02A6700B5A7C8 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E836F2B7F8D0A00B88238 /* UIView+Extension.swift */; };
+		4AF091C32CA02A6700B5A7C8 /* Log+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C17002C5F5222003B9C23 /* Log+CoreDataProperties.swift */; };
+		4AF091C42CA02A6700B5A7C8 /* LogDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA5A2C26699600F53DA1 /* LogDetailViewModel.swift */; };
+		4AF091C52CA02A6700B5A7C8 /* EnteranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E836A2B7F884500B88238 /* EnteranceViewController.swift */; };
+		4AF091C62CA02A6700B5A7C8 /* LogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA562C2664FA00F53DA1 /* LogDetailViewController.swift */; };
+		4AF091C72CA02A6700B5A7C8 /* JLogNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83832B7FC6F000B88238 /* JLogNetwork.swift */; };
+		4AF091C82CA02A6700B5A7C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83562B7F84E700B88238 /* SceneDelegate.swift */; };
+		4AF091C92CA02A6700B5A7C8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FADD2C3AA0F500F53DA1 /* SettingsViewController.swift */; };
+		4AF091CA2CA02A6700B5A7C8 /* TopLogDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA5E2C269A9A00F53DA1 /* TopLogDetailCell.swift */; };
+		4AF091CB2CA02A6700B5A7C8 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF89A572B91AA5800E07CA2 /* LocalizableStrings.swift */; };
+		4AF091CC2CA02A6700B5A7C8 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A679E632C4B9F0B00134DB7 /* SettingsViewModel.swift */; };
+		4AF091CD2CA02A6700B5A7C8 /* RoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E837B2B7FBDC900B88238 /* RoomViewModel.swift */; };
+		4AF091CE2CA02A6700B5A7C8 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83712B7F8D2600B88238 /* UIFont+Extension.swift */; };
+		4AF091CF2CA02A6700B5A7C8 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E83732B7FB3F300B88238 /* Collection+Extension.swift */; };
+		4AF091D02CA02A6700B5A7C8 /* WideLogDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FA5C2C266D3900F53DA1 /* WideLogDetailCell.swift */; };
+		4AF091D12CA02A6700B5A7C8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E836C2B7F8B9600B88238 /* Constant.swift */; };
+		4AF091D22CA02A6700B5A7C8 /* Balance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAC42C3A92AB00F53DA1 /* Balance+CoreDataClass.swift */; };
+		4AF091D32CA02A6700B5A7C8 /* Balance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C17012C5F5222003B9C23 /* Balance+CoreDataProperties.swift */; };
+		4AF091D42CA02A6700B5A7C8 /* JLogModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A04FAAA2C3A89A800F53DA1 /* JLogModel.xcdatamodeld */; };
+		4AF091D72CA02A6700B5A7C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E835F2B7F84E800B88238 /* LaunchScreen.storyboard */; };
+		4AF091D82CA02A6700B5A7C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E835D2B7F84E800B88238 /* Assets.xcassets */; };
+		4AF091D92CA02A6700B5A7C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AF89A552B91A5CA00E07CA2 /* Localizable.strings */; };
 		4AF89A4D2B88805300E07CA2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF89A4C2B88805300E07CA2 /* LoadingView.swift */; };
 		4AF89A4F2B8883BE00E07CA2 /* JLogBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF89A4E2B8883BE00E07CA2 /* JLogBaseViewController.swift */; };
 		4AF89A532B91A5CA00E07CA2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AF89A552B91A5CA00E07CA2 /* Localizable.strings */; };
@@ -90,7 +127,7 @@
 		4A04FA5A2C26699600F53DA1 /* LogDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDetailViewModel.swift; sourceTree = "<group>"; };
 		4A04FA5C2C266D3900F53DA1 /* WideLogDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideLogDetailCell.swift; sourceTree = "<group>"; };
 		4A04FA5E2C269A9A00F53DA1 /* TopLogDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopLogDetailCell.swift; sourceTree = "<group>"; };
-		4A04FA662C27C1F400F53DA1 /* (dev)JLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(dev)JLog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A04FA662C27C1F400F53DA1 /* (alpha)JLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(alpha)JLog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A04FAAB2C3A89A800F53DA1 /* JLogModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JLogModel.xcdatamodel; sourceTree = "<group>"; };
 		4A04FAAD2C3A8C4200F53DA1 /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
 		4A04FAC42C3A92AB00F53DA1 /* Balance+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Balance+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -120,6 +157,8 @@
 		4A6E837B2B7FBDC900B88238 /* RoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewModel.swift; sourceTree = "<group>"; };
 		4A6E837D2B7FC03E00B88238 /* LogCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCreateViewController.swift; sourceTree = "<group>"; };
 		4A6E83832B7FC6F000B88238 /* JLogNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLogNetwork.swift; sourceTree = "<group>"; };
+		4AF091DD2CA02A6700B5A7C8 /* (beta)JLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(beta)JLog.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AF091DE2CA02A6700B5A7C8 /* JLog copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "JLog copy-Info.plist"; path = "/Users/jisu/Desktop/Desktop/jisusCompanyLife/Projects/JLog/JLog copy-Info.plist"; sourceTree = "<absolute>"; };
 		4AF89A4C2B88805300E07CA2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		4AF89A4E2B8883BE00E07CA2 /* JLogBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLogBaseViewController.swift; sourceTree = "<group>"; };
 		4AF89A542B91A5CA00E07CA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -136,6 +175,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4A6E834E2B7F84E700B88238 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AF091D52CA02A6700B5A7C8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -162,6 +208,7 @@
 			children = (
 				4A6E83532B7F84E700B88238 /* JLog */,
 				4A6E83522B7F84E700B88238 /* Products */,
+				4AF091DE2CA02A6700B5A7C8 /* JLog copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,7 +216,8 @@
 			isa = PBXGroup;
 			children = (
 				4A6E83512B7F84E700B88238 /* JLog.app */,
-				4A04FA662C27C1F400F53DA1 /* (dev)JLog.app */,
+				4A04FA662C27C1F400F53DA1 /* (alpha)JLog.app */,
+				4AF091DD2CA02A6700B5A7C8 /* (beta)JLog.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -266,9 +314,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4A04FA652C27C1F400F53DA1 /* (dev)JLog */ = {
+		4A04FA652C27C1F400F53DA1 /* (alpha)JLog */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4A04FA772C27C1F600F53DA1 /* Build configuration list for PBXNativeTarget "(dev)JLog" */;
+			buildConfigurationList = 4A04FA772C27C1F600F53DA1 /* Build configuration list for PBXNativeTarget "(alpha)JLog" */;
 			buildPhases = (
 				4A04FA622C27C1F400F53DA1 /* Sources */,
 				4A04FA632C27C1F400F53DA1 /* Frameworks */,
@@ -278,9 +326,9 @@
 			);
 			dependencies = (
 			);
-			name = "(dev)JLog";
+			name = "(alpha)JLog";
 			productName = "(dev)JLog";
-			productReference = 4A04FA662C27C1F400F53DA1 /* (dev)JLog.app */;
+			productReference = 4A04FA662C27C1F400F53DA1 /* (alpha)JLog.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4A6E83502B7F84E700B88238 /* JLog */ = {
@@ -298,6 +346,23 @@
 			name = JLog;
 			productName = JLog;
 			productReference = 4A6E83512B7F84E700B88238 /* JLog.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4AF091B12CA02A6700B5A7C8 /* (beta)JLog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AF091DA2CA02A6700B5A7C8 /* Build configuration list for PBXNativeTarget "(beta)JLog" */;
+			buildPhases = (
+				4AF091B22CA02A6700B5A7C8 /* Sources */,
+				4AF091D52CA02A6700B5A7C8 /* Frameworks */,
+				4AF091D62CA02A6700B5A7C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "(beta)JLog";
+			productName = JLog;
+			productReference = 4AF091DD2CA02A6700B5A7C8 /* (beta)JLog.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -333,7 +398,8 @@
 			projectRoot = "";
 			targets = (
 				4A6E83502B7F84E700B88238 /* JLog */,
-				4A04FA652C27C1F400F53DA1 /* (dev)JLog */,
+				4A04FA652C27C1F400F53DA1 /* (alpha)JLog */,
+				4AF091B12CA02A6700B5A7C8 /* (beta)JLog */,
 			);
 		};
 /* End PBXProject section */
@@ -344,7 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A04FA962C27C3A700F53DA1 /* Localizable.strings in Resources */,
-				4A04FAA02C31949E00F53DA1 /* Assets.xcassets in Resources */,
+				4AF091852CA0071500B5A7C8 /* Assets.xcassets in Resources */,
 				4A04FA972C27C3BF00F53DA1 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,8 +420,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A6E83612B7F84E800B88238 /* LaunchScreen.storyboard in Resources */,
-				4A04FAA12C3194A000F53DA1 /* Assets.xcassets in Resources */,
+				4AF091842CA0071500B5A7C8 /* Assets.xcassets in Resources */,
 				4AF89A532B91A5CA00E07CA2 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AF091D62CA02A6700B5A7C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AF091D72CA02A6700B5A7C8 /* LaunchScreen.storyboard in Resources */,
+				4AF091D82CA02A6700B5A7C8 /* Assets.xcassets in Resources */,
+				4AF091D92CA02A6700B5A7C8 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,38 +485,79 @@
 			files = (
 				4AF89A4F2B8883BE00E07CA2 /* JLogBaseViewController.swift in Sources */,
 				4A04FAAE2C3A8C4200F53DA1 /* LocalStorageManager.swift in Sources */,
-				4A04FACC2C3A92AB00F53DA1 /* Log+CoreDataClass.swift in Sources */,
 				4A6E83692B7F881200B88238 /* LoginViewController.swift in Sources */,
 				4A6E837E2B7FC03E00B88238 /* LogCreateViewController.swift in Sources */,
+				4AF091A22CA0226100B5A7C8 /* Log+CoreDataClass.swift in Sources */,
 				4A04FA552C2568B700F53DA1 /* String+Extension.swift in Sources */,
-				4A04FAE32C3C039400F53DA1 /* SettingsViewController.swift in Sources */,
-				4A679E642C4B9F0B00134DB7 /* SettingsViewModel.swift in Sources */,
 				4A6E83782B7FB54E00B88238 /* LogCell.swift in Sources */,
 				4A6E837A2B7FB56600B88238 /* DTOConverter.swift in Sources */,
 				4A6E83592B7F84E700B88238 /* RoomViewController.swift in Sources */,
 				4AF89A4D2B88805300E07CA2 /* LoadingView.swift in Sources */,
+				4AF091AE2CA0231D00B5A7C8 /* SettingCell.swift in Sources */,
 				4A04FA592C2665E200F53DA1 /* NarrowLogDetailCell.swift in Sources */,
 				4A6E83762B7FB52700B88238 /* BalanceCell.swift in Sources */,
 				4A6E83552B7F84E700B88238 /* AppDelegate.swift in Sources */,
+				4AF091AF2CA0231F00B5A7C8 /* ToggleSettingCell.swift in Sources */,
 				4A6E83702B7F8D0A00B88238 /* UIView+Extension.swift in Sources */,
+				4AF091A12CA0225E00B5A7C8 /* Log+CoreDataProperties.swift in Sources */,
 				4A04FA5B2C26699600F53DA1 /* LogDetailViewModel.swift in Sources */,
 				4A6E836B2B7F884500B88238 /* EnteranceViewController.swift in Sources */,
 				4A04FA572C2664FA00F53DA1 /* LogDetailViewController.swift in Sources */,
 				4A6E83842B7FC6F000B88238 /* JLogNetwork.swift in Sources */,
-				4A5C17022C5F5222003B9C23 /* Log+CoreDataProperties.swift in Sources */,
 				4A6E83572B7F84E700B88238 /* SceneDelegate.swift in Sources */,
+				4AF091AD2CA0231700B5A7C8 /* SettingsViewController.swift in Sources */,
 				4A04FA5F2C269A9A00F53DA1 /* TopLogDetailCell.swift in Sources */,
 				4AF89A582B91AA5800E07CA2 /* LocalizableStrings.swift in Sources */,
+				4AF091B02CA0233600B5A7C8 /* SettingsViewModel.swift in Sources */,
 				4A6E837C2B7FBDC900B88238 /* RoomViewModel.swift in Sources */,
-				4A04FAE12C3AC31600F53DA1 /* SettingCell.swift in Sources */,
 				4A6E83722B7F8D2600B88238 /* UIFont+Extension.swift in Sources */,
 				4A6E83742B7FB3F300B88238 /* Collection+Extension.swift in Sources */,
 				4A04FA5D2C266D3900F53DA1 /* WideLogDetailCell.swift in Sources */,
 				4A6E836D2B7F8B9600B88238 /* Constant.swift in Sources */,
-				4A4FB81B2C8D28890005B34E /* ToggleSettingCell.swift in Sources */,
-				4A04FAAC2C3A89A800F53DA1 /* JLogModel.xcdatamodeld in Sources */,
 				4A04FAC82C3A92AB00F53DA1 /* Balance+CoreDataClass.swift in Sources */,
 				4A5C17032C5F5222003B9C23 /* Balance+CoreDataProperties.swift in Sources */,
+				4AF091A02CA0225C00B5A7C8 /* JLogModel.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AF091B22CA02A6700B5A7C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AF091B32CA02A6700B5A7C8 /* JLogBaseViewController.swift in Sources */,
+				4AF091B42CA02A6700B5A7C8 /* LocalStorageManager.swift in Sources */,
+				4AF091B52CA02A6700B5A7C8 /* LoginViewController.swift in Sources */,
+				4AF091B62CA02A6700B5A7C8 /* LogCreateViewController.swift in Sources */,
+				4AF091B72CA02A6700B5A7C8 /* Log+CoreDataClass.swift in Sources */,
+				4AF091B82CA02A6700B5A7C8 /* String+Extension.swift in Sources */,
+				4AF091B92CA02A6700B5A7C8 /* LogCell.swift in Sources */,
+				4AF091BA2CA02A6700B5A7C8 /* DTOConverter.swift in Sources */,
+				4AF091BB2CA02A6700B5A7C8 /* RoomViewController.swift in Sources */,
+				4AF091BC2CA02A6700B5A7C8 /* LoadingView.swift in Sources */,
+				4AF091BD2CA02A6700B5A7C8 /* SettingCell.swift in Sources */,
+				4AF091BE2CA02A6700B5A7C8 /* NarrowLogDetailCell.swift in Sources */,
+				4AF091BF2CA02A6700B5A7C8 /* BalanceCell.swift in Sources */,
+				4AF091C02CA02A6700B5A7C8 /* AppDelegate.swift in Sources */,
+				4AF091C12CA02A6700B5A7C8 /* ToggleSettingCell.swift in Sources */,
+				4AF091C22CA02A6700B5A7C8 /* UIView+Extension.swift in Sources */,
+				4AF091C32CA02A6700B5A7C8 /* Log+CoreDataProperties.swift in Sources */,
+				4AF091C42CA02A6700B5A7C8 /* LogDetailViewModel.swift in Sources */,
+				4AF091C52CA02A6700B5A7C8 /* EnteranceViewController.swift in Sources */,
+				4AF091C62CA02A6700B5A7C8 /* LogDetailViewController.swift in Sources */,
+				4AF091C72CA02A6700B5A7C8 /* JLogNetwork.swift in Sources */,
+				4AF091C82CA02A6700B5A7C8 /* SceneDelegate.swift in Sources */,
+				4AF091C92CA02A6700B5A7C8 /* SettingsViewController.swift in Sources */,
+				4AF091CA2CA02A6700B5A7C8 /* TopLogDetailCell.swift in Sources */,
+				4AF091CB2CA02A6700B5A7C8 /* LocalizableStrings.swift in Sources */,
+				4AF091CC2CA02A6700B5A7C8 /* SettingsViewModel.swift in Sources */,
+				4AF091CD2CA02A6700B5A7C8 /* RoomViewModel.swift in Sources */,
+				4AF091CE2CA02A6700B5A7C8 /* UIFont+Extension.swift in Sources */,
+				4AF091CF2CA02A6700B5A7C8 /* Collection+Extension.swift in Sources */,
+				4AF091D02CA02A6700B5A7C8 /* WideLogDetailCell.swift in Sources */,
+				4AF091D12CA02A6700B5A7C8 /* Constant.swift in Sources */,
+				4AF091D22CA02A6700B5A7C8 /* Balance+CoreDataClass.swift in Sources */,
+				4AF091D32CA02A6700B5A7C8 /* Balance+CoreDataProperties.swift in Sources */,
+				4AF091D42CA02A6700B5A7C8 /* JLogModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,16 +587,21 @@
 		4A04FA782C27C1F600F53DA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = DevAppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AlphaAppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4CLMD5ZPC3;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JLog/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "(dev)제이로그";
+				INFOPLIST_KEY_CFBundleDisplayName = "(alpha)제이로그";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -488,7 +610,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dreamtree.dev.JLog;
+				OTHER_SWIFT_FLAGS = "-DALPHA";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dreamtree.alpha.jlog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -499,16 +622,17 @@
 		4A04FA792C27C1F600F53DA1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = DevAppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AlphaAppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4CLMD5ZPC3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JLog/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "(dev)제이로그";
+				INFOPLIST_KEY_CFBundleDisplayName = "(alpha)제이로그";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -517,7 +641,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dreamtree.dev.JLog;
+				OTHER_SWIFT_FLAGS = "-DALPHA";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dreamtree.alpha.jlog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -669,6 +794,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.05;
+				OTHER_SWIFT_FLAGS = "-DREAL";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dreamtree.jlog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -700,7 +826,72 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.05;
+				OTHER_SWIFT_FLAGS = "-DREAL";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dreamtree.jlog;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4AF091DB2CA02A6700B5A7C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = BetaAppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = 4CLMD5ZPC3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "JLog copy-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "제이로그";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.05;
+				OTHER_SWIFT_FLAGS = "-DBETA";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dreamtree.beta.jlog;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4AF091DC2CA02A6700B5A7C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = BetaAppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = 4CLMD5ZPC3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "JLog copy-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "제이로그";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.05;
+				OTHER_SWIFT_FLAGS = "-DBETA";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dreamtree.beta.jlog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -711,7 +902,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4A04FA772C27C1F600F53DA1 /* Build configuration list for PBXNativeTarget "(dev)JLog" */ = {
+		4A04FA772C27C1F600F53DA1 /* Build configuration list for PBXNativeTarget "(alpha)JLog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A04FA782C27C1F600F53DA1 /* Debug */,
@@ -734,6 +925,15 @@
 			buildConfigurations = (
 				4A6E83662B7F84E800B88238 /* Debug */,
 				4A6E83672B7F84E800B88238 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AF091DA2CA02A6700B5A7C8 /* Build configuration list for PBXNativeTarget "(beta)JLog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AF091DB2CA02A6700B5A7C8 /* Debug */,
+				4AF091DC2CA02A6700B5A7C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

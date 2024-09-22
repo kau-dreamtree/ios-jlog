@@ -87,6 +87,7 @@ final class RoomViewController: JLogBaseViewController {
         button.addTarget(self, action: #selector(addButtonDidTouched), for: .touchUpInside)
         return button
     }()
+    #if !REAL
     private lazy var setting: UIBarButtonItem = {
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 20)
         let image = UIImage(systemName: "gearshape", withConfiguration: imageConfig)
@@ -94,6 +95,7 @@ final class RoomViewController: JLogBaseViewController {
         button.tintColor = .label
         return button
     }()
+    #endif
     
     init(viewModel: RoomViewModelProtocol) {
         self.viewModel = viewModel
@@ -142,7 +144,9 @@ final class RoomViewController: JLogBaseViewController {
     private func setupNavigationBar() {
         self.code.setTitle(self.viewModel.code, for: .normal)
         
+        #if !REAL
         self.navigationItem.rightBarButtonItem = self.setting
+        #endif
         self.navigationItem.titleView = self.navigationTitle
         self.navigationController?.isNavigationBarHidden = false
         
@@ -180,11 +184,13 @@ final class RoomViewController: JLogBaseViewController {
         self.present(vc, animated: true)
     }
     
+    #if !REAL
     @objc
     private func settingButtonDidTouched() {
         let vc = SettingsViewController(viewModel: SettingsViewModel(name: self.viewModel.name, code: self.viewModel.code))
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    #endif
     
     private func swipeActions(for indexPath: IndexPath?) -> UISwipeActionsConfiguration? {
         guard let indexPath, indexPath.section == 1,

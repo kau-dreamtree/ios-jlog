@@ -144,7 +144,7 @@ final class EnteranceViewController: JLogBaseViewController {
         let vc = RoomViewController(viewModel: RoomViewModel(name: self.viewModel.name, code: code))
         let navigationController = UINavigationController(rootViewController: vc)
         navigationController.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        self.present(navigationController, animated: true)
     }
 }
 
