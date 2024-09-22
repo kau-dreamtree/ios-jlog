@@ -15,7 +15,7 @@ protocol RoomViewModelProtocol {
     var name: String { get }
     var code: String { get }
     var balance: String { get }
-    var logs: [Log] { get }
+    var logs: [LogDTO] { get }
     
     func searchLogs() async -> Bool
     func findLog(at: Int) -> LogCell.ViewData?
@@ -40,14 +40,20 @@ final class RoomViewController: JLogBaseViewController {
         view.register(BalanceCell.self, forCellWithReuseIdentifier: BalanceCell.identifier)
         view.register(LogCell.self, forCellWithReuseIdentifier: LogCell.identifier)
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addAction(UIAction(handler: { [weak self] _ in
+            self?.refreshRoom()
+        }), for: .valueChanged)
+        view.refreshControl = refreshControl
+        
         return view
     }()
     
-    private let navigationBar: UIView = {
+    private lazy var navigationTitle: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemBackground
-        view.layer.borderWidth = 0.5
-        view.layer.borderColor = UIColor.opaqueSeparator.cgColor
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(codeButtonDidTouched)))
         return view
     }()
     private let room: UILabel = {
@@ -57,30 +63,39 @@ final class RoomViewController: JLogBaseViewController {
         label.textColor = .label
         return label
     }()
-    private let code: UILabel = {
-        let label = UILabel()
-        label.font = .smallFont
-        label.textColor = .secondaryLabel
-        return label
-    }()
-    private let add: UIButton = {
+    private let code: UIButton = {
         let button = UIButton()
-        let imageConfig = UIImage.SymbolConfiguration(pointSize: 20)
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 10)
+        let image = UIImage(systemName: "doc.on.doc", withConfiguration: imageConfig)
+        button.setImage(image, for: .normal)
+        button.imageView?.contentMode = .scaleToFill
+        button.tintColor = .secondaryLabel
+        button.setTitleColor(.secondaryLabel, for: .normal)
+        button.titleLabel?.font = .smallFont
+        button.isEnabled = false
+        return button
+    }()
+    private lazy var add: UIButton = {
+        let button = UIButton()
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 30)
         let image = UIImage(systemName: "plus", withConfiguration: imageConfig)
         button.setImage(image, for: .normal)
-        button.tintColor = .label
+        button.tintColor = .systemBackground
         button.imageView?.contentMode = .scaleToFill
+        button.layer.cornerRadius = 25
+        button.backgroundColor = .systemGray2
+        button.addTarget(self, action: #selector(addButtonDidTouched), for: .touchUpInside)
         return button
     }()
-    private let refresh: UIButton = {
-        let button = UIButton()
+    #if !REAL
+    private lazy var setting: UIBarButtonItem = {
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 20)
-        let image = UIImage(systemName: "arrow.clockwise", withConfiguration: imageConfig)
-        button.setImage(image, for: .normal)
+        let image = UIImage(systemName: "gearshape", withConfiguration: imageConfig)
+        let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(settingButtonDidTouched))
         button.tintColor = .label
-        button.imageView?.contentMode = .scaleToFill
         return button
     }()
+    #endif
     
     init(viewModel: RoomViewModelProtocol) {
         self.viewModel = viewModel
@@ -102,73 +117,83 @@ final class RoomViewController: JLogBaseViewController {
         self.view.backgroundColor = .systemBackground
         
         self.setupLayout()
-        self.setupButton()
         self.refreshRoom()
     }
     
     private func setupLayout() {
-        self.view.addSubviews([self.navigationBar, self.logs])
+        self.view.addSubviews([self.logs, self.add])
         
         NSLayoutConstraint.activate([
             self.logs.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            self.logs.topAnchor.constraint(equalTo: self.navigationBar.bottomAnchor),
+            self.logs.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             self.logs.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
             self.logs.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
             self.logs.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor)
         ])
         
-        self.setupCustomNavigationBar()
-    }
-    
-    private func setupCustomNavigationBar() {
-        self.code.text = "#\(self.viewModel.code)"
-        
-        self.navigationBar.addSubviews([self.room, self.code, self.add, self.refresh])
-        
         NSLayoutConstraint.activate([
-            navigationBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: -1),
-            navigationBar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 1),
-            navigationBar.topAnchor.constraint(equalTo: self.view.topAnchor, constant: -1),
-            navigationBar.heightAnchor.constraint(equalToConstant: self.view.safeAreaInsets.top + 121)
+            self.add.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.add.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
+            self.add.widthAnchor.constraint(equalToConstant: 50),
+            self.add.heightAnchor.constraint(equalToConstant: 50)
         ])
         
+        self.setupNavigationBar()
+    }
+    
+    private func setupNavigationBar() {
+        self.code.setTitle(self.viewModel.code, for: .normal)
+        
+        #if !REAL
+        self.navigationItem.rightBarButtonItem = self.setting
+        #endif
+        self.navigationItem.titleView = self.navigationTitle
+        self.navigationController?.isNavigationBarHidden = false
+        
+        let backBarButton = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButton.tintColor = .label
+        self.navigationItem.backBarButtonItem = backBarButton
+        
+        self.navigationTitle.addSubviews([self.room, self.code])
+        
         NSLayoutConstraint.activate([
-            self.room.centerXAnchor.constraint(equalTo: navigationBar.centerXAnchor),
+            self.navigationTitle.widthAnchor.constraint(equalToConstant: 100),
+            self.navigationTitle.heightAnchor.constraint(equalToConstant: 44)
+        ])
+        NSLayoutConstraint.activate([
+            self.room.centerXAnchor.constraint(equalTo: self.navigationTitle.centerXAnchor),
             self.room.bottomAnchor.constraint(equalTo: self.code.topAnchor)
         ])
         NSLayoutConstraint.activate([
-            self.code.centerXAnchor.constraint(equalTo: navigationBar.centerXAnchor),
-            self.code.bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: -10)
+            self.code.centerXAnchor.constraint(equalTo: self.navigationTitle.centerXAnchor),
+            self.code.bottomAnchor.constraint(equalTo: self.navigationTitle.bottomAnchor)
         ])
-        NSLayoutConstraint.activate([
-            self.add.centerYAnchor.constraint(equalTo: self.room.bottomAnchor, constant: -10),
-            self.add.trailingAnchor.constraint(equalTo: self.navigationBar.trailingAnchor, constant: -20),
-            self.add.heightAnchor.constraint(equalToConstant: 25),
-            self.add.widthAnchor.constraint(equalToConstant: 25)
-        ])
-        NSLayoutConstraint.activate([
-            self.refresh.centerYAnchor.constraint(equalTo: self.room.bottomAnchor, constant: -10),
-            self.refresh.leadingAnchor.constraint(equalTo: self.navigationBar.leadingAnchor, constant: 20),
-            self.refresh.heightAnchor.constraint(equalToConstant: 25),
-            self.refresh.widthAnchor.constraint(equalToConstant: 25)
-        ])
+    }
+
+    @objc
+    private func codeButtonDidTouched() {
+        let activityViewController = UIActivityViewController(activityItems: [self.viewModel.code], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
     }
     
-    private func setupButton() {
-        self.add.addAction(UIAction { [weak self] _ in
-            guard let self else { return }
-            let viewModel = LogCreateViewModel(name: self.viewModel.name, code: self.viewModel.code)
-            let vc = LogCreateViewController(viewModel: viewModel, delegate: self)
-            self.present(vc, animated: true)
-        }, for: .touchUpInside)
-        
-        self.refresh.addAction(UIAction { [weak self] _ in
-            self?.refreshRoom()
-        }, for: .touchUpInside)
+    @objc
+    private func addButtonDidTouched() {
+        let viewModel = LogCreateViewModel(name: self.viewModel.name, code: self.viewModel.code)
+        let vc = LogCreateViewController(viewModel: viewModel, delegate: self)
+        self.present(vc, animated: true)
     }
+    
+    #if !REAL
+    @objc
+    private func settingButtonDidTouched() {
+        let vc = SettingsViewController(viewModel: SettingsViewModel(name: self.viewModel.name, code: self.viewModel.code))
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    #endif
     
     private func swipeActions(for indexPath: IndexPath?) -> UISwipeActionsConfiguration? {
-        guard let indexPath,
+        guard let indexPath, indexPath.section == 1,
               let log = self.viewModel.findLog(at: indexPath.row)?.log,
               log.username == self.viewModel.name else { return nil }
         let modifyAction = UIContextualAction(style: .normal, title: LocalizableStrings.localize("modify")) { [weak self] _, _, completion in
@@ -181,7 +206,6 @@ final class RoomViewController: JLogBaseViewController {
             Task { [weak self] in
                 guard let self else { return }
                 self.add.isEnabled = false
-                self.refresh.isEnabled = false
                 
                 let result = await self.viewModel.deleteLog(at: indexPath.row)
                 switch result {
@@ -190,30 +214,32 @@ final class RoomViewController: JLogBaseViewController {
                 }
                 
                 self.add.isEnabled = true
-                self.refresh.isEnabled = true
             }
         }
         return UISwipeActionsConfiguration(actions: [deleteAction, modifyAction])
+    }
+    
+    private func didEndRefreshRoom() {
+        guard self.logs.refreshControl?.isRefreshing == true else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.logs.refreshControl?.endRefreshing()
+        }
     }
 }
 
 extension RoomViewController: RefreshRoomViewDelegate {
     func refreshRoom() {
-        self.isLoading.activate()
         Task {[weak self] in
             guard let self else { return }
             self.add.isEnabled = false
-            self.refresh.isEnabled = false
             
             let result = await self.viewModel.searchLogs()
+            self.logs.reloadData()
             switch result {
-            case true : self.logs.reloadData()
-            case false : self.alert(with: LocalizableStrings.localize("retry_refresh"))
+            case true : self.add.isEnabled = true
+            case false : break
             }
-            
-            self.add.isEnabled = true
-            self.refresh.isEnabled = true
-            self.isLoading.deactivate()
+            self.didEndRefreshRoom()
         }
     }
 }
@@ -254,5 +280,12 @@ extension RoomViewController: UICollectionViewDelegate, UICollectionViewDelegate
         case 0: return CGSize(width: collectionView.frame.width, height: 150)
         default: return CGSize(width: collectionView.frame.width, height: 50)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard indexPath.section == 1 else { return }
+        let viewModel = LogDetailViewModel(log: self.viewModel.logs[indexPath.row])
+        let vc = LogDetailViewController(viewModel: viewModel)
+        self.present(vc, animated: true)
     }
 }

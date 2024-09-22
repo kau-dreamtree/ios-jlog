@@ -17,7 +17,6 @@ final class JLogNetwork {
     static let shared = JLogNetwork()
     
     private let host: String = Constant.jlogHost
-    private let port: Int = Constant.jlogPort
     
     func request(with api: JLogAPI) async throws -> (Data, URLResponse) {
         do {
@@ -45,10 +44,13 @@ final class JLogNetwork {
     
     private func makeURLRequest(with api: JLogAPI) throws -> URLRequest {
         var urlComponents = URLComponents()
-        urlComponents.scheme = "http"
+        urlComponents.scheme = "https"
         urlComponents.host = self.host
-        urlComponents.port = self.port
+        #if DEBUG
+        urlComponents.path = "/test\(api.path)"
+        #else
         urlComponents.path = api.path
+        #endif
         
         switch api.method {
         case .get(let queryItems) :
@@ -61,7 +63,7 @@ final class JLogNetwork {
         
         var request = URLRequest(url: url)
         switch api.method {
-        case let .post(data), let .put(data), let .delete(data ):
+        case let .post(data), let .put(data), let .delete(data):
             request.httpBody = try? JSONSerialization.data(withJSONObject: data)
         default :
             break
@@ -108,10 +110,10 @@ enum RoomAPI: JLogAPI {
 }
 
 enum LogAPI: JLogAPI {
-    case create(roomCode: String, username: String, amount: Int)
+    case create(roomCode: String, username: String, amount: Int, memo: String?)
     case find(roomCode: String, username: String)
-    case modify(roomCode: String, username: String, logId: Int, amount: Int)
-    case delete(roomCode: String, username: String, logId: Int)
+    case modify(roomCode: String, username: String, logId: Int64, amount: Int, memo: String?)
+    case delete(roomCode: String, username: String, logId: Int64)
 
     var path: String {
         switch self {
@@ -121,12 +123,12 @@ enum LogAPI: JLogAPI {
     
     var method: Method {
         switch self {
-        case let .create(roomCode, username, amount) : 
-            return .post(data: ["room_code": roomCode, "username": username, "amount": amount])
-        case let .find(roomCode, username) : 
+        case let .create(roomCode, username, amount, memo) :
+            return .post(data: ["room_code": roomCode, "username": username, "amount": amount, "memo": memo])
+        case let .find(roomCode, username) :
             return .get(queryItems: [URLQueryItem(name: "room_code", value: roomCode), URLQueryItem(name: "username", value: username)])
-        case let .modify(roomCode, username, logId, amount) : 
-            return .put(data: ["room_code": roomCode, "username": username, "log_id": logId, "amount": amount])
+        case let .modify(roomCode, username, logId, amount, memo) :
+            return .put(data: ["room_code": roomCode, "username": username, "log_id": logId, "amount": amount, "memo": memo])
         case let .delete(roomCode, username, logId) :
             return .delete(data: ["room_code": roomCode, "username": username, "log_id": logId])
         }

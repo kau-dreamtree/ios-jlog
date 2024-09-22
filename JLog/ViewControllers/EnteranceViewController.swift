@@ -32,8 +32,8 @@ final class EnteranceViewController: JLogBaseViewController {
     private let enter: UIButton = {
         let button = UIButton()
         button.setTitle(LocalizableStrings.localize("enter"), for: .normal)
+        button.setTitleColor(.buttonTitle, for: .normal)
         button.titleLabel?.font = .regularFont
-        button.titleLabel?.textColor = .tertiaryLabel
         button.backgroundColor = .buttonOff
         button.layer.cornerRadius = 10
         return button
@@ -41,8 +41,8 @@ final class EnteranceViewController: JLogBaseViewController {
     private let hold: UIButton = {
         let button = UIButton()
         button.setTitle(LocalizableStrings.localize("create_room"), for: .normal)
+        button.setTitleColor(.buttonTitle, for: .normal)
         button.titleLabel?.font = .regularFont
-        button.titleLabel?.textColor = .tertiaryLabel
         button.backgroundColor = .buttonOn
         button.layer.cornerRadius = 10
         return button
@@ -142,8 +142,9 @@ final class EnteranceViewController: JLogBaseViewController {
     
     private func enterRoom(withCode code: String) {
         let vc = RoomViewController(viewModel: RoomViewModel(name: self.viewModel.name, code: code))
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        let navigationController = UINavigationController(rootViewController: vc)
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true)
     }
 }
 
@@ -187,6 +188,10 @@ struct EnteranceViewModel {
 }
 
 extension UIViewController {
+    func alert(withLocalizableKey key: String) {
+        self.alert(with: LocalizableStrings.localize(key))
+    }
+    
     func alert(with message: String) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: LocalizableStrings.localize("confirm"), style: .default, handler: nil)

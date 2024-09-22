@@ -13,8 +13,10 @@ final class BalanceCell: UICollectionViewCell {
     
     private let balance: UILabel = {
         let label = UILabel()
-        label.font = .balanceFont
+        label.font = .topTitleFont
         label.textColor = .label
+        label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
         return label
     }()
     
@@ -36,15 +38,13 @@ final class BalanceCell: UICollectionViewCell {
         self.addSubviews([self.balance])
         NSLayoutConstraint.activate([
             self.balance.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.balance.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            self.balance.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            self.balance.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            self.balance.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
         ])
     }
     
     func update(balance: String) {
         self.balance.text = balance
     }
-}
-
-private extension UIFont {
-    static let balanceFont = UIFont.systemFont(ofSize: 40, weight: .semibold)
 }
