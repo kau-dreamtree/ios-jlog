@@ -600,6 +600,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JLog/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "(alpha)제이로그";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -631,6 +632,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JLog/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "(alpha)제이로그";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -777,7 +779,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 4CLMD5ZPC3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JLog/Info.plist;
@@ -793,7 +795,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.05;
+				MARKETING_VERSION = 2.0;
 				OTHER_SWIFT_FLAGS = "-DREAL";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dreamtree.jlog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -809,7 +811,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 4CLMD5ZPC3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JLog/Info.plist;
@@ -825,7 +827,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.05;
+				MARKETING_VERSION = 2.0;
 				OTHER_SWIFT_FLAGS = "-DREAL";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dreamtree.jlog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -845,7 +847,7 @@
 				DEVELOPMENT_TEAM = 4CLMD5ZPC3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JLog copy-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "제이로그";
+				INFOPLIST_KEY_CFBundleDisplayName = "(beta)제이로그";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -877,7 +879,7 @@
 				DEVELOPMENT_TEAM = 4CLMD5ZPC3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JLog copy-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "제이로그";
+				INFOPLIST_KEY_CFBundleDisplayName = "(beta)제이로그";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

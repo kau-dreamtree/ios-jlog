@@ -231,14 +231,9 @@ extension RoomViewController: RefreshRoomViewDelegate {
     func refreshRoom() {
         Task {[weak self] in
             guard let self else { return }
-            self.add.isEnabled = false
             
-            let result = await self.viewModel.searchLogs()
+            let _ = await self.viewModel.searchLogs()
             self.logs.reloadData()
-            switch result {
-            case true : self.add.isEnabled = true
-            case false : break
-            }
             self.didEndRefreshRoom()
         }
     }
