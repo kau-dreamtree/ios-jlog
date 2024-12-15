@@ -12,7 +12,7 @@ final class LogCell: UICollectionViewCell {
     static let identifier = "logCell"
     
     struct ViewData {
-        let log: Log
+        let log: LogDTO
         let isMine: Bool
     }
     
@@ -28,10 +28,18 @@ final class LogCell: UICollectionViewCell {
         label.textColor = .label
         return label
     }()
+    private let memo: UIImageView = {
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 14)
+        let image = UIImage(systemName: "text.bubble", withConfiguration: imageConfig)
+        let view = UIImageView(image: image)
+        view.tintColor = .tertiaryLabel
+        return view
+    }()
     private let amount: UILabel = {
         let label = UILabel()
         label.font = .regularFont
         label.textColor = .label
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -51,7 +59,7 @@ final class LogCell: UICollectionViewCell {
     }
     
     private func setupLayout() {
-        self.addSubviews([self.date, self.name, self.amount])
+        self.addSubviews([self.name, self.date, self.memo, self.amount])
         NSLayoutConstraint.activate([
             self.name.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             self.name.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20)
@@ -61,6 +69,11 @@ final class LogCell: UICollectionViewCell {
             self.date.leadingAnchor.constraint(equalTo: self.name.trailingAnchor, constant: 10)
         ])
         NSLayoutConstraint.activate([
+            self.memo.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            self.memo.leadingAnchor.constraint(equalTo: self.date.trailingAnchor, constant: 10)
+        ])
+        NSLayoutConstraint.activate([
+            self.amount.leadingAnchor.constraint(greaterThanOrEqualTo: self.memo.trailingAnchor, constant: 10),
             self.amount.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             self.amount.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
         ])
@@ -69,6 +82,7 @@ final class LogCell: UICollectionViewCell {
     func update(with data: ViewData) {
         self.date.text = data.log.stringCreatedAt
         self.name.text = data.log.username
+        self.memo.isHidden = data.log.memo.isEmptyOrNil
         self.amount.text = data.log.amount.currency
         self.backgroundColor = data.isMine ? .secondarySystemFill : .systemBackground
     }

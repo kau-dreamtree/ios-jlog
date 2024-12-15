@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22225" systemVersion="23E224" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Balance" representedClassName=".Balance" syncable="YES">
+        <attribute name="amount" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="username" attributeType="String" defaultValueString=""/>
+    </entity>
+    <entity name="Log" representedClassName=".Log" syncable="YES">
+        <attribute name="amount" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="744444480" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="memo" optional="YES" attributeType="String"/>
+        <attribute name="username" attributeType="String" defaultValueString=""/>
+    </entity>
+</model>
